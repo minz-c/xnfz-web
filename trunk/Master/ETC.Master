@@ -1,0 +1,104 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ETC.master.cs" Inherits="ETC.Master.ETC" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1" />
+    <link href="CSS/css.css" rel="stylesheet" type="text/css" />
+    <script src="../Master/JavaScript/MenuSelected.js" type="text/javascript"></script>
+    <title></title>
+    <asp:ContentPlaceHolder ID="cphHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="divTop" style="height: 40%">
+        <table width="1092" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td align="center" valign="bottom" >
+                        <div id="divHead">
+                            <img id="Img1" src="~/Master/Images/head1.jpg"   alt="head" runat="Server" height="124" width="1092" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="menu" style="height: 30%">
+                            <ul>
+                                <li  style="padding-left: 100px;" class="m_line">
+                                    <img id="Img2" src="~/Master/images/line1.gif" alt="" runat="Server" /></li>
+                                <li id="m_1" class="m_li_a"><a href="../Index.aspx">首页</a></li>
+                                <li class="m_line">
+                                    <img id="Img3" src="~/Master/images/line1.gif" alt="" runat="Server" /></li>
+                                <li id="m_2" class="m_li" onmouseover="MouseOver(2);" onmouseout="MouseOut(2);"><a
+                                    href="#">基本情况</a></li>
+                                <li class="m_line">
+                                    <img id="Img4" src="~/Master/images/line1.gif" alt="" runat="Server" /></li>
+                                <li id="m_3" class="m_li" onmouseover="MouseOver(3);" onmouseout="MouseOut(3);"><a
+                                    href="#">建设内容</a></li>
+                                <li class="m_line">
+                                    <img id="Img5" src="~/Master/images/line1.gif" alt="" runat="Server" /></li>
+                                <li id="m_4" class="m_li" onmouseover="MouseOver(4);" onmouseout="MouseOut(4);"><a
+                                    href="#">资源共享</a></li>
+                                <li class="m_line">
+                                    <img id="Img6" src="~/Master/images/line1.gif" alt="" runat="Server" /></li>
+                                <li id="m_5" class="m_li" onmouseover="MouseOver(5);" onmouseout="MouseOut(5);"><a
+                                    href="#">条件保障</a></li>
+                                     <li class="m_line">
+                                    <img id="Img8" src="~/Master/images/line1.gif" alt="" runat="Server" /></li>
+                                    <li id="m_6" class="m_li" onmouseover="MouseOver(6);" onmouseout="MouseOut(6);"><a
+                                    href="../apply/apply.aspx">申报书</a></li>
+                                
+                            </ul>
+                        </div>
+                        <div id="submenu" style="height: 32px; background-color: #F1F1F1;" align="left">
+                            <ul class="smenu">
+                                <li style="padding-left: 280px; display: block;" id="s_1" class="s_li_a">欢迎访问虚拟仿真实验教学中心</li>
+                                <li style="padding-left: 180px; display: none;" id="s_2" class="s_li" onmouseover="MouseOver(2);"
+                                    onmouseout="MouseOut(2);"><a href="../BaseInfor/BaseInfor.aspx">基本情况</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                    <a href="../BaseInfor/Teachers.aspx">中心主任</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="../BaseInfor/Survery.aspx">
+                                        中心概况</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                <li style="padding-left: 300px; display: none;" id="s_3" class="s_li" onmouseover="MouseOver(3);"
+                                    onmouseout="MouseOut(3);"><a href="../Constructor/Constructor.aspx?">概况</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                    <a href="../Constructor/TeachResource.aspx">教学资源</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a
+                                        href="../Constructor/TeachPlat.aspx">教学平台</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="../Constructor/Enterprise.aspx">
+                                            合作企业</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="../Constructor/ManageTeam.aspx">管理队伍</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                    <a href="../Constructor/ManageSystem.aspx">管理体系</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="../Constructor/Innovate.aspx">
+                                        特色创新</a> </li>
+                                <li style="padding-left: 410px; display: none;" id="s_4" class="s_li" onmouseover="MouseOver(4);"
+                                    onmouseout="MouseOut(4);"><a href="../ResourceShare/Range.aspx">范围与效果</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                    <a href="../ResourceShare/Plan.aspx">计划与安排</a> </li>
+                                <li style="padding-left: 520px; display: none;" id="s_5" class="s_li" onmouseover="MouseOver(5);"
+                                    onmouseout="MouseOut(5);"><a href="../Guarantee/Instrument.aspx">仪器设备配置</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                    <a href="../Guarantee/Environment.aspx">环境与安全</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="../Guarantee/Maintain.aspx">
+                                        运行与维护</a> </li>
+                                        <li style="padding-left: 610px; display: none;" id="s_6" class="s_li" onmouseover="MouseOver(6);"
+                                    onmouseout="MouseOut(6);"><a href="../apply/apply.aspx"></a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="divContent">
+        <asp:ContentPlaceHolder ID="cphContent" runat="Server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div id="divFoot">
+        <table width="1092" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td height="30" align="center" valign="middle" class="foothang" style="background-position: center bottom; background-image: url('../Master/Images/foot.gif'); background-repeat: repeat-x;">
+                     
+                        版权所有©福建师范大学 通讯地址： 福建省福州市大学城科技路1号福建师范大学旗山校区(350117)
+                        <a href="http://www.fjnu.edu.cn/" target="_blank"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

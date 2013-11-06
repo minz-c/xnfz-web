@@ -1,0 +1,28 @@
+﻿#lmenu DL
+{
+    padding-right: 0px;
+    padding-left: 0px;
+    background: url(../images/bottom.gif) #900 no-repeat left bottom;
+    padding-bottom: 10px;
+    margin: 0px auto;
+    width: 250px;
+    padding-top: 0px;
+}
+#lmenu DT {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 1.4em; BACKGROUND: url(../images/top.gif) #900 no-repeat left top; PADDING-BOTTOM: 10px; MARGIN: 0px; COLOR: #fff; PADDING-TOP: 10px; BORDER-BOTTOM: #fff 1px solid
+}
+#lmenu DD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 1em; BACKGROUND: #6f0000; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #fff; PADDING-TOP: 0px; BORDER-BOTTOM: #fff 1px solid
+}
+#gallery A {
+	PADDING-RIGHT: 5px; DISPLAY: block; PADDING-LEFT: 20px; BACKGROUND: url(../images/arrow.gif) #6f0000 no-repeat 10px 10px; PADDING-BOTTOM: 5px; WIDTH: 225px; COLOR: #fff; PADDING-TOP: 5px; TEXT-DECORATION: none
+}
+#gallery A:visited {
+	PADDING-RIGHT: 5px; DISPLAY: block; PADDING-LEFT: 20px; BACKGROUND: url(../images/arrow.gif) #6f0000 no-repeat 10px 10px; PADDING-BOTTOM: 5px; WIDTH: 225px; COLOR: #fff; PADDING-TOP: 5px; TEXT-DECORATION: none
+}
+#gallery A:hover {
+	BACKGROUND: url(../images/arrow.gif) #e00 no-repeat 11px 10px; COLOR: #9cf
+}
+OL LI {
+	FONT-SIZE: 11px
+}
