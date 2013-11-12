@@ -1,531 +1,1332 @@
-﻿
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/ETC.Master" AutoEventWireup="true"
+    CodeBehind="Index.aspx.cs" Inherits="ETC.Index" %>
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1"><meta name="viewpoint" content="width=device-width, initial-scale=1" /><link href="Master/CSS/css.css" rel="stylesheet" type="text/css" />
-    <script src="../Master/JavaScript/MenuSelected.js" type="text/javascript"></script>
-    <title>
-	福建师范大学虚拟仿真实验教学中心
-</title>
+<asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
     <script src="JavaScript/jquery-1.10.2.js" type="text/javascript"></script>
+<style type="text/css">
+
+#tip   {position:absolute;color:#333;display:none;}
+#tip s   {position:absolute;top:40px;left:-20px;display:block;width:0px;height:0px;font-size:0px;line-height:0px;border-color:transparent #BBA transparent transparent;border-style:dashed solid dashed dashed;border-width:10px;}
+#tip s i   {position:absolute;top:-10px;left:-8px;display:block;width:0px;height:0px;font-size:0px;line-height:0px;border-color:transparent #fff transparent transparent;border-style:dashed solid dashed dashed;border-width:10px;}
+#tip .t_box   {position:relative;background-color:#CCC;filter:alpha(opacity=50);-moz-opacity:0.5;bottom:-3px;right:-3px;}
+#tip .t_box div  {position:relative;background-color:#FFF;border:1px solid #ACA899;background:#FFF;padding:1px;top:-3px;left:-3px;}
+ 
+.tip   {width:82px;height:82px;border:1px solid #DDD;}
+</style>
 <script type="text/javascript">
-    var flag = 1;
-    function Interval() {
-        if (flag < 3) {
-            flag++;
-        }
-        else {
-            flag = 1;
-        }
-        $('#ifrRight').attr('src',flag+'.html');
-}
-$(function () {
-    setInterval(Interval, 30000);
-});
-</script>
-</head>
-<body>
-    <form method="post" action="" id="form1">
-<div class="aspNetHidden">
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTY1NDU2MTA1MmRkn1CUUEPjX8VY/g2G/fl0tawfHRUCOCX4OP2ahkctYYY=" />
-</div>
 
-    <div id="divTop" style="height: 40%">
-        <table width="1092" border="0" align="center" cellpadding="0" cellspacing="0">
+    $(function () {
+//        var arraytips = [];
+        var $tip1 = $('<div id="tip"><div class="t_box"><div><s><i></i></s><p><strong>现代分子育种（企业级）虚拟仿真技术平台</strong></p><p>' +
+                            '现代分子育种（企业级）虚拟仿真技术平台</p><p>' +
+                            '以生物制药企业技术研发部门为蓝本，拟建设</p><p>' +
+                            '以下具体虚拟仿真实验项目：DNA克隆、重组</p><p>' +
+                            '蛋白表达（大肠杆菌系统、毕赤酵母系统和</p><p>' +
+                            'CHO细胞系统）、Western blot鉴定表达产物</p><p>' +
+                            '和新型蛋白质药物分子的高通量筛选。</p></div>' +
+                            '<div align="center"><img src="images/1.jpg"/></div></div></div>');
+        var $tip2 = $('<div id="tip"><div class="t_box"><div><s><i></i></s><p><strong>发酵过程工程虚拟仿真技术平台</strong></p><p>' +
+                            '(1). 发酵原材料制备流程</p><p>' +
+                            '(2). 发酵原料高温连续灭菌流程</p><p>' +
+                            '(3). 大规模发酵用无菌空气制备流程</p><p>' +
+                            '(4). 发酵过程多参数优化控制流程</p></div>' +
+                            '<div align="center"><img src="images/2.jpg"/></div></div></div>');
+        var $tip3 = $('<div id="tip"><div class="t_box"><div><s><i></i></s><p><strong>生物分离虚拟仿真技术平台</strong></p><p>' +
+                            '(1).发酵液的板框过滤</p><p>' +
+                            '(2).工业级膜分离技术</p><p>' +
+                            '(3). 大型离子交换技术</p><p>' +
+                            '(4).溶媒萃取技术</p><p>' +
+                            '(5). 产品结晶技术</p>' +
+                            '(6).产品喷雾干燥</p></div>' +
+                            '<div align="center"><img src="images/3.jpg"/></div></div></div>');
+        var $tip4 = $('<div id="tip"><div class="t_box"><div><s><i></i></s><p><strong>“三废”处理技术虚拟仿真技术平台</strong></p><p>' +
+                            '(1).燃煤废气除尘</p><p>' +
+                            '(2).发酵废水污染处理</p><p>' +
+                            '(3).发酵废渣资源化利用</p></div>'+
+                            '<div align="center"><img src="images/4.jpg"/></div></div></div>');
+        var $tip5 = $('<div id="tip"><div class="t_box"><div><s><i></i></s><p><strong>虚拟仿真实验项目</strong></p><p>' +
+                            '1.啤酒虚拟仿真发酵生产工艺</p><p>' +
+                            '2.青霉素虚拟仿真发酵生产工艺</p></div></div></div>');
+
+        $('#area1').mouseover(function () {
+            $('body').append($tip1);
+            $('#tip').show('fast');
+        }).mouseout(function () {
+            $('#tip').remove();
+        }).mousemove(function (e) {
+            $('#tip').css({ "top": (e.pageY - 60) + "px", "left": (e.pageX + 30) + "px" })
+        });
+        $('#area2').mouseover(function () {
+            $('body').append($tip2);
+            $('#tip').show('fast');
+        }).mouseout(function () {
+            $('#tip').remove();
+        }).mousemove(function (e) {
+            $('#tip').css({ "top": (e.pageY - 60) + "px", "left": (e.pageX + 30) + "px" })
+        });
+        $('#area3').mouseover(function () {
+            $('body').append($tip3);
+            $('#tip').show('fast');
+        }).mouseout(function () {
+            $('#tip').remove();
+        }).mousemove(function (e) {
+            $('#tip').css({ "top": (e.pageY - 60) + "px", "left": (e.pageX + 30) + "px" })
+        });
+        $('#area4').mouseover(function () {
+            $('body').append($tip4);
+            $('#tip').show('fast');
+        }).mouseout(function () {
+            $('#tip').remove();
+        }).mousemove(function (e) {
+            $('#tip').css({ "top": (e.pageY - 60) + "px", "left": (e.pageX + 30) + "px" })
+        });
+        $('#area5').mouseover(function () {
+            $('body').append($tip5);
+            $('#tip').show('fast');
+        }).mouseout(function () {
+            $('#tip').remove();
+        }).mousemove(function (e) {
+            $('#tip').css({ "top": (e.pageY - 60) + "px", "left": (e.pageX + 30) + "px" })
+        });
+    })
+
+</script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="server">
+
+    <div id="divTop" style="width: 1092px;" align="center">
+        <table width="1092" border="0" cellspacing="1" cellpadding="1" align="center">
+            <tr align="center">
+                <th width="36" height="300" class="longpieces" scope="row">
+                    <img src="Images/建设内容.jpg" />
+                </th>
+                <td width="740">
+                    <img src="Images/虚拟发酵工厂.jpg" width="740" height="300" border="0" usemap="#Map" />
+                </td>
+                <td width="300" height="300">
+                    <table width="100%" height="300" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td align="center" valign="middle">
+                                    <!--酷播迷你 CuPlayerMiniV2.0 代码开始-->
+                                    <script type="text/javascript" src="cuplayer/Images/swfobject.js"></script>
+                                    <div id="CuPlayer">
+                                        <strong>酷播迷你(CuPlayerMiniV2.2) 提示：您的Flash Player版本过低，请<a href="http://www.CuPlayer.com/">点此进行播放器升级</a>！</strong>
+                                    </div>
+                                    <script type="text/javascript">
+                                        var so = new SWFObject("cuplayer/CuPlayerMiniV22_Black_S.swf", "CuPlayer", "300", "300", "9", "#000000");
+                                        so.addParam("allowfullscreen", "true");
+                                        so.addParam("allowscriptaccess", "always");
+                                        so.addParam("wmode", "opaque");
+                                        so.addParam("quality", "high");
+                                        so.addParam("salign", "lt");
+                                        so.addVariable("CuPlayerFile", "http://life.fjnu.edu.cn/flv/fjnuxnfz.flv");
+                                        so.addVariable("CuPlayerImage", "cuplayer/Images/flashChangfa2.jpg");
+                                        so.addVariable("CuPlayerShowImage", "flash");
+                                        so.addVariable("CuPlayerWidth", "300");
+                                        so.addVariable("CuPlayerHeight", "300");
+                                        so.addVariable("CuPlayerAutoPlay", "true");
+                                        so.addVariable("CuPlayerAutoRepeat", "false");
+                                        so.addVariable("CuPlayerShowControl", "true");
+                                        so.addVariable("CuPlayerAutoHideControl", "true");
+                                        so.addVariable("CuPlayerAutoHideTime", "6");
+                                        so.addVariable("CuPlayerVolume", "80");
+                                        so.write("CuPlayer");
+                                    </script>
+                                    <!--酷播迷你 CuPlayerMiniV2.0 代码结束-->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <map name="Map" id="Map">
+<area id="area1" shape="poly" coords="54,127,59,158,109,211,163,195,159,156,104,116" href="#现代分子育种（企业级）虚拟仿真技术平台" />
+<area id="area2" shape="poly" coords="220,86,221,99,217,103,283,136,298,150,354,140,352,105,266,76" href="#发酵过程工程虚拟仿真技术平台" />
+<area id="area3" shape="poly" coords="155,106,157,140,216,174,255,161,259,131,195,98" href="#生物分离虚拟仿真技术平台" />
+<area id="area4" shape="poly" coords="412,50,401,55,403,67,429,76,459,91,478,87,450,59" href="#“三废”处理技术虚拟仿真技术平台" />
+<area id="area5" shape="poly" coords="247,164,253,195,383,287,408,289,473,247,466,212,455,202,432,190,385,211,324,176,335,171,325,161,310,166,277,153" href="#5" />
+</map>
+    </div>
+    <div id="divMiddle"  style="width: 1092px;" align="center">
+	<table width="1092" border="0" cellspacing="1" cellpadding="3">
+  <tr>
+    <td width="36" height="140" rowspan="2"><img src="Images/已有基础.jpg" width="36" height="140" alt=" " /></td>
+    <td width="306" height="36"><img src="Images/虚拟仿真资源.jpg" width="306" height="36" /></td>
+    <td height="36" colspan="2"><img src="Images/实体平台资源.jpg" alt=" " width="580" height="36" /></td>
+    <td height="36" align="left" valign="top"><img src="Images/教学资源.jpg" width="100%" height="36" /></td>
+  </tr>
+  <tr>
+    <td width="306"><table width="306" height="100" border="0" cellpadding=".5" cellspacing=".5">
+      <tr>
+        <td width="107" bgcolor="#630000"><font color="#FFFFFF">啤酒发酵生产工艺仿真</font></td>
+        <td width="2"></td>
+        <td width="106" bgcolor="#630000"><font color="#FFFFFF">青霉素发酵生产工艺仿真</font></td>
+        <td  width="2"></td>
+        <td width="105" bgcolor="#630000"><font color="#FFFFFF">虚拟实验课堂</font></td>
+      </tr>
+    </table></td>
+    <td width="306" align="left" valign="top"><table width="288" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td width="288" height="25">
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td align="left">
+                                                    <a href="ExistResource/shitipingtai.html" target="_blank" title="工业微生物发酵技术国家地方联合工程研究中心">工业微生物发酵技术国家地方联合工程研究中心</a>                                                </td>
+                                            </tr>
+                                        </tbody>
+                              </table>                                </td>
+                            </tr>
+                            <tr>
+                                <td height="25">
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td align="left">
+                                                    <a href="ExistResource/shitipingtai1.htm" target="_blank" title="工业微生物教育部工程研究中心">工业微生物教育部工程研究中心</a>                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>                                </td>
+                            </tr>
+                            <tr>
+                                <td height="25">
+                                    <table width="" cellpadding="0" cellspacing="0" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td align="left">
+                                                    <a href="ExistResource/shitipingtai2.htm" target="_blank" title="国家级生物学实验教学示范中心工程实训中心">国家级生物学实验教学示范中心工程实训中心</a>                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>                                </td>
+                            </tr>
+                        </tbody>
+      </table></td>
+    <td width="260" align="left" valign="top"><table  width="260"   border="0" cellspacing="0" cellpadding="0"><tbody><tr>
+                                <td height="25">
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td align="left">
+                                                    <a href="http://www.tsingtao.com.cn/" target="_blank" title="青岛啤酒福州有限公司">青岛啤酒福州有限公司</a>                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>                                </td>
+                            </tr>
+                            <tr>
+                                <td height="25">
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td align="left">
+                                                    <a href="http://www.wuyiwj.com" target="_blank" title="福建省建阳武夷味精有限公司">福建省建阳武夷味精有限公司</a>                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>                                </td>
+                            </tr>
+                            <tr>
+                                <td height="25">
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td align="left">
+                                                    <a href="http://www.fxpharm.com" target="_blank" title="丽珠集团福兴医药有限公司">丽珠集团福兴医药有限公司</a>                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>                                </td>
+                            </tr>
+                            <tr>
+                                <td height="25">
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td align="left">
+                                                    <a href="http://www.mscgame.com/" target="_blank" title="万城集团福建天趣网络技术有限公司">万城集团福建天趣网络技术有限公司</a>                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>                                </td>
+      </tr></tbody></table></td>
+    <td align="left" valign="top"><table width="100" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td height="25">
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td align="left">
+                                                    <a href="#教学资源" target="_blank" title="教学资源">教学资源</a>                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>                                </td>
+                            </tr>
+                            <tr>
+                                <td height="25">
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td align="left">
+                                                    <a href="#精品课程" target="_blank" title="精品课程">精品课程</a>                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>                                </td>
+                            </tr>
+                        </tbody>
+      </table></td>
+  </tr>
+</table>
+
+	
+	</div>
+    <div id="divBottom" style="width: 1092px;" align="center">
+        <table width="1092" height="130" border="0" cellspacing="1" cellpadding="1">
             <tbody>
                 <tr>
-                    <td align="center" valign="bottom" >
-                        <div id="divHead">
-                            <img src="Master/Images/head1.jpg" id="Img1" alt="head" height="124" width="1092" />
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div id="menu" style="height: 30%">
-                            <ul>
-                                <li  style="padding-left: 100px;" class="m_line">
-                                    <img src="Master/images/line1.gif" id="Img2" /></li>
-                                <li id="m_1" class="m_li_a"><a href="../Index.aspx">首页</a></li>
-                                <li class="m_line">
-                                    <img src="Master/images/line1.gif" id="Img3" /></li>
-                                <li id="m_2" class="m_li" onmouseover="MouseOver(2);" onmouseout="MouseOut(2);"><a
-                                    href="#">基本情况</a></li>
-                                <li class="m_line">
-                                    <img src="Master/images/line1.gif" id="Img4" /></li>
-                                <li id="m_3" class="m_li" onmouseover="MouseOver(3);" onmouseout="MouseOut(3);"><a
-                                    href="#">建设内容</a></li>
-                                <li class="m_line">
-                                    <img src="Master/images/line1.gif" id="Img5" /></li>
-                                <li id="m_4" class="m_li" onmouseover="MouseOver(4);" onmouseout="MouseOut(4);"><a
-                                    href="#">资源共享</a></li>
-                                <li class="m_line">
-                                    <img src="Master/images/line1.gif" id="Img6" /></li>
-                                <li id="m_5" class="m_li" onmouseover="MouseOver(5);" onmouseout="MouseOut(5);"><a
-                                    href="#">条件保障</a></li>
-                                     <li class="m_line">
-                                    <img src="Master/images/line1.gif" id="Img8" /></li>
-                                    <li id="m_6" class="m_li" onmouseover="MouseOver(6);" onmouseout="MouseOut(6);"><a
-                                    href="../apply/apply.aspx">申报书</a></li>
-                                
-                            </ul>
-                        </div>
-                        <div id="submenu" style="height: 32px; background-color: #F1F1F1;" align="left">
-                            <ul class="smenu">
-                                <li style="padding-left: 280px; display: block;" id="s_1" class="s_li_a">欢迎访问虚拟仿真实验教学中心</li>
-                                <li style="padding-left: 180px; display: none;" id="s_2" class="s_li" onmouseover="MouseOver(2);"
-                                    onmouseout="MouseOut(2);"><a href="../BaseInfor/BaseInfor.aspx">基本情况</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                                    <a href="../BaseInfor/Teachers.aspx">中心主任</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="../BaseInfor/Survery.aspx">
-                                        中心概况</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                                <li style="padding-left: 300px; display: none;" id="s_3" class="s_li" onmouseover="MouseOver(3);"
-                                    onmouseout="MouseOut(3);"><a href="../Constructor/Constructor.aspx?">概况</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                                    <a href="../Constructor/TeachResource.aspx">教学资源</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a
-                                        href="../Constructor/TeachPlat.aspx">教学平台</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="../Constructor/Enterprise.aspx">
-                                            合作企业</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="../Constructor/ManageTeam.aspx">管理队伍</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                                    <a href="../Constructor/ManageSystem.aspx">管理体系</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="../Constructor/Innovate.aspx">
-                                        特色创新</a> </li>
-                                <li style="padding-left: 410px; display: none;" id="s_4" class="s_li" onmouseover="MouseOver(4);"
-                                    onmouseout="MouseOut(4);"><a href="../ResourceShare/Range.aspx">范围与效果</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                                    <a href="../ResourceShare/Plan.aspx">计划与安排</a> </li>
-                                <li style="padding-left: 520px; display: none;" id="s_5" class="s_li" onmouseover="MouseOver(5);"
-                                    onmouseout="MouseOut(5);"><a href="../Guarantee/Instrument.aspx">仪器设备配置</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                                    <a href="../Guarantee/Environment.aspx">环境与安全</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="../Guarantee/Maintain.aspx">
-                                        运行与维护</a> </li>
-                                        <li style="padding-left: 610px; display: none;" id="s_6" class="s_li" onmouseover="MouseOver(6);"
-                                    onmouseout="MouseOut(6);"><a href="../apply/apply.aspx"></a></li>
-                            </ul>
-                        </div>
+                    <td height="130" align="center" valign="top">
+                        <table cellspacing="0" cellpadding="0" width="1090" align="center" border="0">
+                            <tbody>
+                                <tr>
+                                    <td height="130" colspan="2" valign="top" style="padding-right: 3px; padding-left: 3px">
+                                        <div id="deml" style="overflow: hidden; width: 1083px; height: 130px">
+                                            <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td id="deml1" valign="top">
+                                                            <table cellspacing="0" cellpadding="0" border="0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td height="130">
+                                                                            <table border="0" cellpadding="0" cellspacing="0">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td height="124">
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/1.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            领导参观工程中心
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/2.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            生物学一级博士点
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/3.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            轻工技术与工程一级硕士点
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/4.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            生物工程专业硕士点
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/5.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            牌匾
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/6.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            工业微生物发酵技术研究中心
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/7.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            工业微生物研究中心
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/8.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            发酵平台
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/9.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            微生物育种平台
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/10.jpg" width="77" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            生物工程设备
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/11.jpg" width="77" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                           工业微生物育种学
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/12.jpg" width="77" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                           微生物工程
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="Images/活动图标/13.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            合作企业
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/14.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            合作企业
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                        <td id="deml2" valign="top">
+                                                            <table cellspacing="0" cellpadding="0" border="0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td height="130">
+                                                                            <table border="0" cellpadding="0" cellspacing="0">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td height="124">
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/1.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            领导参观工程中心
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/2.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            生物学一级博士点
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/3.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            轻工技术与工程一级硕士点
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/4.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            生物工程专业硕士点
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/5.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            牌匾
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/6.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            工业微生物发酵技术研究中心
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/7.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            工业微生物研究中心
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/8.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            平台
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/9.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            平台
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/10.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            教材
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/11.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            教材
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="images/活动图标/12.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            教材
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td width="700" align="center" valign="top">
+                                                                                            <table width="150" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td height="100" align="center">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" id="newproducts">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="102" align="center">
+                                                                                                                            <img height="100" src="Images/活动图标/13.jpg" width="120" style="padding: 2px; border: 1px #666666 solid">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height="2" align="center">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center">
+                                                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td height="18" align="center" style="font-size: 12px">
+                                                                                                                            合作企业
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <script>
+                                            var speed20 = 30
+                                            deml2.innerHTML = deml1.innerHTML
+                                            function Marquee20() {
+                                                if (deml2.offsetWidth - deml.scrollLeft <= 0)
+                                                    deml.scrollLeft -= deml1.offsetWidth
+                                                else {
+                                                    deml.scrollLeft++
+                                                }
+                                            }
+                                            var MyMar20 = setInterval(Marquee20, speed20)
+                                            deml.onmouseover = function () { clearInterval(MyMar20) }
+                                            deml.onmouseout = function () { MyMar20 = setInterval(Marquee20, speed20) } 
+                                        </script>
+                                    </td>
+                                    <td width="10">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <div id="divContent">
-        
-    <table width="1092" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top: 5px">
-        <tr>
-            <td width="191" align="center" valign="top" style="padding-right: 0px;">
-                <table border="0" cellpadding="0" cellspacing="0">
-                    <tbody>
-                        <tr>
-                            <td align="center">
-                                <img src="Images/l7.jpg" style="width: 100%; height: 100%" alt="" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table width="191" height="354" border="0" cellpadding="0" cellspacing="0">
-                    <tbody>
-                        <tr>
-                            <td align="center">
-                                <a href="BaseInfor/BaseInfor.aspx">
-                                    <img src="images/l1.jpg" width="177" height="42" border="0" /></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <a href="BaseInfor/Survery.aspx">
-                                    <img src="images/l2.jpg" width="177" height="42" border="0" alt="" /></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <a href="Constructor/TeachResource.aspx">
-                                    <img src="images/l3.jpg" width="177" height="42" border="0" alt="" /></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <a href="Constructor/TeachPlat.aspx">
-                                    <img src="images/l4.jpg" width="177" height="42" border="0" alt="" /></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <a href="ResourceShare/Range.aspx">
-                                    <img src="images/l5.jpg" width="177" height="42" border="0" alt="" /></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <a href="ResourceShare/Plan.aspx">
-                                    <img src="images/l6.jpg" width="177" height="42" border="0" alt="" /></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-            <td align="center" valign="top" style="padding-right: 0px">
-                <table width="880" height="100%" border="0" cellpadding="0" cellspacing="0">
-                    <tbody>
-                        <tr>
-                            <td width="60%" align="center" valign="top" style="border-style: none; border-width: thick">
-                                <table width="100%" height="47" border="0" cellpadding="0" cellspacing="0">
-                                    <tbody>
-                                        <tr>
-                                            <td style="padding-right: 10px; padding-left: 0px">
-                                                <img src="Images/l8.jpg"  />
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <table width="100%" height="180" border="0" cellpadding="0" cellspacing="0">
-                                    <tbody>
-                                        <tr>
-                                        
-                                            <td align="left" valign="top" style="padding: 0px 10px 0px 10px; line-height: 24px">
-                                              
-                                               <!--  <iframe id="ifrRight" name="ifrRight" target="_self" style="border-style: none;
-                    border-width: 0px; margin: 0px; padding: 0px;" width="490" src="1.html"></iframe> -->
-												<p style="text-indent:2em;"><span style="font-family: 宋体; font-size: 12px; line-height:200%;">
-依托2008年获准建设、2013年验收合格的国家级生物学实验教学示范中心，利用新兴计算机多媒体技术和网络通信技术，整合多学科教学和科研团队力量，以建设虚拟仿真现代生物技术和生物化工实验教学平台、基于校园网的分布式虚拟仿真实验教学网络体系、校企合作虚拟仿真实验教学项目研发平台以及多学科师资队伍为目标，实现资源共享和成果价值最大化，进一步深化实验教学改革，促进学生更好地理解生物学基础理论和掌握生物学基本技术。</span></p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                            <td width="30%" align="center" valign="middle">
-                                <!-- <table width="100%" height="47" border="0" cellpadding="0" cellspacing="0">
-                                    <tbody>
-                                        <tr>
-                                          <td style="padding-right: 0px; padding-left: 10px">
-                                                <img src="Images/l9.jpg"/>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table> -->
-                                <table width="100%" height="200" border="0" cellpadding="0" cellspacing="0">
-                                    <tbody>
-                                        <tr>
-                                            <td align="center" valign="middle" >
-                                              <!--酷播迷你 CuPlayerMiniV2.0 代码开始-->
-
-<!--<embed src="/CuPlayer/CuPlayerMiniV22_Black_S.swf" flashvars="&CuPlayerFile=http://xnfz.fjnu.edu.cn/videos/fjnuxnfz.flv&CuPlayerImage=/CuPlayer/Images/flashChangfa2.jpg&CuPlayerWidth=100%&CuPlayerHeight=200&CuPlayerAutoPlay=true&CuPlayerAutoRepeat=true&CuPlayerShowControl=flase&CuPlayerAutoHideControl=true&CuPlayerAutoHideTime=5&CuPlayerVolume=5" quality="Medium" allowfullscreen="true" 
- pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="100%" height="200"></embed> -->
-
-<script type="text/javascript" src="cuplayer/Images/swfobject.js"></script>
-<div id="CuPlayer" > <strong>酷播迷你(CuPlayerMiniV2.2) 提示：您的Flash Player版本过低，请<a href="http://www.CuPlayer.com/" >点此进行播放器升级</a>！</strong> </div>
-<script type=text/javascript>
-var so = new SWFObject("cuplayer/CuPlayerMiniV22_Black_S.swf","CuPlayer","250","200","9","#000000");
-so.addParam("allowfullscreen","true");
-so.addParam("allowscriptaccess","always");
-so.addParam("wmode","opaque");
-so.addParam("quality","high");
-so.addParam("salign","lt");
-so.addVariable("CuPlayerFile","http://life.fjnu.edu.cn/flv/fjnuxnfz.flv");
-so.addVariable("CuPlayerImage","cuplayer/Images/flashChangfa2.jpg");
-so.addVariable("CuPlayerShowImage","flash");
-so.addVariable("CuPlayerWidth","250");
-so.addVariable("CuPlayerHeight","260");
-so.addVariable("CuPlayerAutoPlay","true");
-so.addVariable("CuPlayerAutoRepeat","false");
-so.addVariable("CuPlayerShowControl","true");
-so.addVariable("CuPlayerAutoHideControl","true");
-so.addVariable("CuPlayerAutoHideTime","6");
-so.addVariable("CuPlayerVolume","80");
-so.write("CuPlayer");
-</script>
-
-
-<!--酷播迷你 CuPlayerMiniV2.0 代码结束-->
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table width="880" height="47" border="0" cellpadding="0" cellspacing="0" style="margin-top: 5px;">
-                    <tbody>
-                        <tr>
-                            <td style="padding-right: 0px; padding-left: 10px">
-                                <img src="images/l10.jpg" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-         <table width="850" height="130" border="0" cellpadding="0" cellspacing="0" >
-         <tbody><tr>
-           <td height="130" align="center" valign="top"><table cellspacing="0" cellpadding="0" width="50%" align="center" border="0">
-                   <tbody>
-                     <tr>
-                       <td height="130" colspan="2" valign="top" style="PADDING-RIGHT: 3px; PADDING-LEFT: 3px"><div id="deml" style="OVERFLOW: hidden; WIDTH:850px; HEIGHT: 130px">
-                           <table cellspacing="0" cellpadding="0" width="100%" border="0">
-                             <tbody>
-                               <tr>
-                                 <td id="deml1" valign="top"><table cellspacing="0" cellpadding="0" border="0">
-                                     <tbody>
-                                       <tr>
-                                         <td height="130"><table border="0" cellpadding="0" cellspacing="0">
-                                             <tbody>
-                                               <tr>
-                                                 <td height="124"></td>
-                                                 <td width="700" align="center" valign="top"><table width="150" border="0" cellspacing="0" cellpadding="0">
-                                                     <tbody><tr>
-                                                       <td height="100" align="center"><table border="0" cellpadding="0" cellspacing="0" id="newproducts">
-                                                           <tbody><tr>
-                                                             <td height="102" align="center"><img height="100" src="images/s1.jpg" width="120" style="padding:2px; border:1px #666666 solid"></td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td height="2" align="center"></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td align="center"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                                           <tbody><tr>
-                                                             <td height="18" align="center" style="font-size:12px">实验楼群</td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                 </tbody></table></td>
-                                                 
-                                                 <td width="700" align="center" valign="top"><table width="150" border="0" cellspacing="0" cellpadding="0">
-                                                     <tbody><tr>
-                                                       <td height="100" align="center"><table border="0" cellpadding="0" cellspacing="0" id="newproducts">
-                                                           <tbody><tr>
-                                                             <td height="102" align="center"><img height="100" src="images/s2.jpg" width="120" style="padding:2px; border:1px #666666 solid"></td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td height="2" align="center"></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td align="center"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                                           <tbody><tr>
-                                                             <td height="18" align="center" style="font-size:12px">本科生创新实验室</td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                 </tbody></table></td>
-                                                 
-                                                 <td width="700" align="center" valign="top"><table width="150" border="0" cellspacing="0" cellpadding="0">
-                                                     <tbody><tr>
-                                                       <td height="100" align="center"><table border="0" cellpadding="0" cellspacing="0" id="newproducts">
-                                                           <tbody><tr>
-                                                             <td height="102" align="center"><img height="100" src="images/s3.jpg"  width="120" style="padding:2px; border:1px #666666 solid"></td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td height="2" align="center"></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td align="center"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                                           <tbody><tr>
-                                                             <td height="18" align="center" style="font-size:12px">工程研究中心中试车间</td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                 </tbody></table></td>
-                                                 
-												 <td width="700" align="center" valign="top"><table width="150" border="0" cellspacing="0" cellpadding="0">
-                                                     <tbody><tr>
-                                                       <td height="100" align="center"><table border="0" cellpadding="0" cellspacing="0" id="newproducts">
-                                                           <tbody><tr>
-                                                             <td height="102" align="center"><img height="100" src="images/s6.jpg" width="120" style="padding:2px; border:1px #666666 solid"></td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td height="2" align="center"></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td align="center"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                                           <tbody><tr>
-                                                             <td height="18" align="center" style="font-size:12px">设备设施</td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                 </tbody></table></td>
-												 
-                                                 <td width="700" align="center" valign="top"><table width="150" border="0" cellspacing="0" cellpadding="0">
-                                                     <tbody><tr>
-                                                       <td height="100" align="center"><table border="0" cellpadding="0" cellspacing="0" id="newproducts">
-                                                           <tbody><tr>
-                                                             <td height="102" align="center"><img height="100" src="Images/s4.jpg"  width="120" style="padding:2px; border:1px #666666 solid"></td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td height="2" align="center"></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td align="center"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                                           <tbody><tr>
-                                                             <td height="18" align="center" style="font-size:12px">显微互动实验室</td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                 </tbody></table></td>
-                                                 
-                                                 <td width="700" align="center" valign="top"><table width="150" border="0" cellspacing="0" cellpadding="0">
-                                                     <tbody><tr>
-                                                       <td height="100" align="center"><table border="0" cellpadding="0" cellspacing="0" id="newproducts">
-                                                           <tbody><tr>
-                                                             <td height="102" align="center"><img height="100" src="images/s5.jpg" width="120" style="padding:2px; border:1px #666666 solid"></td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td height="2" align="center"></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td align="center"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                                           <tbody><tr>
-                                                             <td height="18" align="center" style="font-size:12px">实验设备</td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                 </tbody></table></td>
-                                                 
-                                               </tr>
-                                             </tbody>
-                                         </table></td>
-                                       </tr>
-                                     </tbody>
-                                 </table></td>
-                                 <td id="deml2" valign="top"><table cellspacing="0" cellpadding="0" border="0">
-                                     <tbody>
-                                       <tr>
-                                         <td height="130"><table border="0" cellpadding="0" cellspacing="0">
-                                             <tbody>
-                                               <tr>
-                                                 <td height="124"></td>
-                                                 <td width="700" align="center" valign="top"><table width="150" border="0" cellspacing="0" cellpadding="0">
-                                                     <tbody><tr>
-                                                       <td height="100" align="center"><table border="0" cellpadding="0" cellspacing="0" id="newproducts">
-                                                           <tbody><tr>
-                                                             <td height="102" align="center"><img height="100" src="images/s2.jpg"   width="120" style="padding:2px; border:1px #666666 solid"></td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td height="2" align="center"></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td align="center"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                                           <tbody><tr>
-                                                             <td height="18" align="center" style="font-size:12px">本科生创新实验室</td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                 </tbody></table></td>
-                                                 
-                                                 <td width="700" align="center" valign="top"><table width="150" border="0" cellspacing="0" cellpadding="0">
-                                                     <tbody><tr>
-                                                       <td height="100" align="center"><table border="0" cellpadding="0" cellspacing="0" id="newproducts">
-                                                           <tbody><tr>
-                                                             <td height="102" align="center"><img height="100" src="images/s3.jpg"  width="120" style="padding:2px; border:1px #666666 solid"></td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td height="2" align="center"></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td align="center"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                                           <tbody><tr>
-                                                             <td height="18" align="center" style="font-size:12px">工程研究中心中试实验室</td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                 </tbody></table></td>
-                                                 
-                                                 <td width="700" align="center" valign="top"><table width="150" border="0" cellspacing="0" cellpadding="0">
-                                                     <tbody><tr>
-                                                       <td height="100" align="center"><table border="0" cellpadding="0" cellspacing="0" id="newproducts">
-                                                           <tbody><tr>
-                                                             <td height="102" align="center"><img height="100" src="Images/s4.jpg" width="120" style="padding:2px; border:1px #666666 solid"></td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td height="2" align="center"></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td align="center"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                                           <tbody><tr>
-                                                             <td height="18" align="center" style="font-size:12px">显微互动实验室</td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                 </tbody></table></td>
-                                                 
-                                                 
-                                                 
-                                                 <td width="700" align="center" valign="top"><table width="150" border="0" cellspacing="0" cellpadding="0">
-                                                     <tbody><tr>
-                                                       <td height="100" align="center"><table border="0" cellpadding="0" cellspacing="0" id="newproducts">
-                                                           <tbody><tr>
-                                                             <td height="102" align="center"><img height="100" src="images/s2.jpg"   width="120" style="padding:2px; border:1px #666666 solid"></td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td height="2" align="center"></td>
-                                                     </tr>
-                                                     <tr>
-                                                       <td align="center"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                                           <tbody><tr>
-                                                             <td height="18" align="center" style="font-size:12px">本科生创新实验室</td>
-                                                           </tr>
-                                                       </tbody></table></td>
-                                                     </tr>
-                                                 </tbody></table></td>
-                                                 
-                                               </tr>
-                                             </tbody>
-                                         </table></td>
-                                       </tr>
-                                     </tbody>
-                                 </table></td>
-                               </tr>
-                             </tbody>
-                           </table>
-                       </div>
-                       <script>
-                           var speed20 = 30
-                           deml2.innerHTML = deml1.innerHTML
-                           function Marquee20() {
-                               if (deml2.offsetWidth - deml.scrollLeft <= 0)
-                                   deml.scrollLeft -= deml1.offsetWidth
-                               else {
-                                   deml.scrollLeft++
-                               }
-                           }
-                           var MyMar20 = setInterval(Marquee20, speed20)
-                           deml.onmouseover = function () { clearInterval(MyMar20) }
-                           deml.onmouseout = function () { MyMar20 = setInterval(Marquee20, speed20) } 
-                   </script></td>
-                       <td width="10"></td>
-                     </tr>
-                   </tbody>
-           </table></td>
-         </tr>
-       </tbody></table>
-                
-            </td>
-        </tr>
-    </table>
-
-    </div>
-    <div id="divFoot">
-        <table width="1092" border="0" align="center" cellpadding="0" cellspacing="0">
-            <tbody>
-                <tr>
-                    <td height="30" align="center" valign="middle" class="foothang" style="background-position: center bottom; background-image: url('../Master/Images/foot.gif'); background-repeat: repeat-x;">
-                     
-                        版权所有©福建师范大学 通讯地址： 福建省福州市大学城科技路1号福建师范大学旗山校区(350117)
-                        <a href="http://www.fjnu.edu.cn/" target="_blank"></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    </form>
-</body>
-</html>
+</asp:Content>

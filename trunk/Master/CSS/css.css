@@ -31,7 +31,7 @@ a:active{
 	margin-top:8px; background-color:#990000;
 }
 #menu ul{
-	margin:auto; width:80%; height:32px;
+	margin:auto; width:100%; height:32px;
 	list-style-type:none; padding:0px; margin-top:0px; margin-bottom:0px;
 }
 .m_li{
@@ -57,7 +57,7 @@ a:active{
 
 
 .smenu{
-	width:774px; margin:0px auto 0px auto; padding:0px; list-style-type:none; height:32px;
+	margin:0px auto 0px auto; padding:0px; list-style-type:none; height:32px;
 }
 .s_li{
 	line-height:32px; width:auto; display:none; height:32px; 
