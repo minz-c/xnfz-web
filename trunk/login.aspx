@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>无标题文档</title>
+<title>啤酒发酵工艺仿真系统</title>
     <script src="JavaScript/jquery-1.10.2.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {

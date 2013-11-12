@@ -267,9 +267,9 @@
   <tr>
     <td width="276" height="140"><table width="276" border="0" cellpadding=".5" cellspacing=".5">
       <tr>
-        <td width="90" align="center" valign="bottom" ><a href="ExistResource/pijiufajiao.html" target="_blank"><img src="Images/top/top1.jpg" width="90" height="132" /></a></td>
+        <td width="90" align="center" valign="bottom" ><a href="ExistResource/xunifangzhen.aspx" target="_blank"><img src="Images/top/top1.jpg" width="90" height="132" /></a></td>
         <td width="3"  valign="top" ></td>
-        <td width="90" valign="bottom" ><a href="ExistResource/qingmeisu.htm" target="_blank"><img src="Images/top/top2.jpg" width="90" height="132" /></a> </td>
+        <td width="90" valign="bottom" ><a href="ExistResource/xunifangzhen1.aspx" target="_blank"><img src="Images/top/top2.jpg" width="90" height="132" /></a> </td>
         <td width="3"  valign="top" ></td>
         <td width="90"  ><a href="http://life.fjnu.edu.cn/lifelab/index.html"  target="_blank"><img src="Images/top/top3.jpg" width="90" height="132" /></a> </td>
       </tr>
@@ -324,7 +324,7 @@
                                         <tbody>
                                             <tr>
                                                 <td width="280" align="left">
-                                                    &nbsp;<a href="Enterprise/qingpi.htm" target="_blank" title="青岛啤酒福州有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 青岛啤酒福州有限公司</font></a>                                                </td>
+                                                    &nbsp;<a href="http://www.tsingtao.com.cn/" target="_blank" title="青岛啤酒福州有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 青岛啤酒福州有限公司</font></a>                                                </td>
                                             </tr>
                                         </tbody>
                                   </table>                                </td>
@@ -335,7 +335,7 @@
                                         <tbody>
                                             <tr>
                                                 <td align="left">
-                                                    &nbsp;<a href="Enterprise/wuyiweijing.htm" target="_blank" title="福建省建阳武夷味精有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 福建省建阳武夷味精有限公司</font></a>                                                </td>
+                                                    &nbsp;<a href="http://www.wuyiwj.com" target="_blank" title="福建省建阳武夷味精有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 福建省建阳武夷味精有限公司</font></a>                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>                                </td>
@@ -346,7 +346,7 @@
                                         <tbody>
                                             <tr>
                                                 <td align="left">
-                                                    &nbsp;<a href="Enterprise/lizhu.html" target="_blank" title="丽珠集团福兴医药有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 丽珠集团福兴医药有限公司</font></a>                                                </td>
+                                                    &nbsp;<a href="http://www.fxpharm.com" target="_blank" title="丽珠集团福兴医药有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 丽珠集团福兴医药有限公司</font></a>                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>                                </td>
@@ -366,7 +366,7 @@
 	  </td></tr></table></td>
     <td ><table width="100%" height="132"  border="0"  cellpadding="3"  cellspacing="0">
       <tr>
-        <td width="50%" height="50%" style="border:thin; border-style:none"  align="right" valign="middle"><a href="ExistResource/jiaoxueziyuan.html" target="_blank"> <img src="Images/top/r1.jpg" /></a></td>
+        <td width="50%" height="50%" style="border:thin; border-style:none"  align="right" valign="middle"><a href="ExistResource/jiaoxueziyuan.aspx" target="_blank"> <img src="Images/top/r1.jpg" /></a></td>
         <td width="50%" height="50%" style="border:thin; border-style:none" align="left" valign="middle" ><a href="http://life.fjnu.edu.cn/rcpy/jpkc/520.html" target="_blank"> <img src="Images/top/r2.jpg" /></a></td>
       </tr>
       <tr>

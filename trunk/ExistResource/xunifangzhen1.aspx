@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/ETC.Master" AutoEventWireup="true"
-    CodeBehind="xunifangzhen.aspx.cs" Inherits="ETC.ExistResource.xunifangzhen" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/ETC.Master" AutoEventWireup="true" CodeBehind="xunifangzhen1.aspx.cs" Inherits="ETC.ExistResource.xunifangzhen1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
     <link href="../CSS/CSSLeft.css" rel="stylesheet" type="text/css" />
@@ -14,19 +13,19 @@
                     break;
                 case 3: $('#ifrRight').height(400);
                     break;
-              
+
                 default: $('#ifrRight').height(440); break;
             }
         }
         $(function () {
-//            var Request = GetRequest();
-//            alert(Request[type]);
-//            if (Request[type] != undefined && Request[type]==2) {
-//            AClick(2);
-//            }
-//            else{
-            AClick(1);
-//            }
+            //            var Request = GetRequest();
+            //            alert(Request[type]);
+            //            if (Request[type] != undefined && Request[type]==2) {
+            //            AClick(2);
+            //            }
+            //            else{
+            AClick(2);
+            //            }
         });
     </script>
 </asp:Content>
@@ -52,7 +51,7 @@
             </td>
             <td width="842">
                 <iframe id="ifrRight" name="ifrRight"  target="_self"  style="border-style: none; border-width: 0px;
-                    margin: 0px; padding: 0px;" width="842" src="pijiufajiao.html"></iframe>
+                    margin: 0px; padding: 0px;" width="842" src="qingmeisu.htm"></iframe>
             </td>
         </tr>
     </table>
