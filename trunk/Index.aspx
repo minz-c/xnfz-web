@@ -72,35 +72,83 @@
             var $tip1 = $('<div id="tip"><div class="t_box"><div  style="width:107"><s><i></i></s>' +
                             '<table width="410" height="121" border="0" cellpadding="1" cellspacing="1"><tr>' +
                             '<th rowspan="2" scope="col"><img src="Images/top/1.jpg" width="107" height="121" /></th>' +
-                            '<th scope="col"><strong>现代分子育种（企业级）虚拟仿真技术平台</strong></th></tr><tr>' +
-                            '<td><p style="padding-left:.5em; text-indent:2em">现代分子育种（企业级）虚拟仿真技术平台以生物制药企业技术研发部门为蓝本，拟建设以下具体虚拟仿真实验项目：DNA克隆、重组蛋白表达（大肠杆菌系统、毕赤酵母系统和CHO细胞系统）、Western blot鉴定表达产物和新型蛋白质药物分子的高通量筛选。</p></td>' +
+                            '<th scope="col" valign="middle"><strong>现代分子育种（企业级）虚拟仿真技术平台</strong></th></tr><tr>' +
+                            '<td valign="top"><p style="padding-left:.5em; text-indent:2em; line-height:1.5em;">现代分子育种（企业级）虚拟仿真技术平台以生物制药企业技术研发部门为蓝本，拟建设以下具体虚拟仿真实验项目：DNA克隆、重组蛋白表达（大肠杆菌系统、毕赤酵母系统和CHO细胞系统）、Western blot鉴定表达产物和新型蛋白质药物分子的高通量筛选。</p></td>' +
                             '</tr></table></div></div></div>');
-            var $tip2 = $('<div id="tip"><div class="t_box"><div><s><i></i></s>' +
-                            '<table border="0" cellpadding="1" cellspacing="1"><tr>' +
-                            '<th rowspan="2" align="center" valign="top" scope="col"><img src="Images/top/2.jpg"/></th>' +
-                            '<th scope="col"><strong>发酵过程工程虚拟仿真技术平台</strong></th></tr><tr>' +
-                            '<td><p ><strong>·</strong>发酵原材料制备流程 <br />' + '<strong>·</strong>发酵原料高温连续灭菌流程 <br />' +
-                            '<strong>·</strong>大规模发酵用无菌空气制备流程 <br />' + '<strong>·</strong>发酵过程多参数优化控制流程 </p></td>' +
-                             '</tr></table></div></div></div></div>');
-            var $tip3 = $('<div id="tip"><div class="t_box"><div><s><i></i></s>' +
-                            '<table width="340" border="0" cellpadding="1" cellspacing="1"> <tr>' +
-                            '<th width="151" rowspan="2" align="center" valign="top" scope="col"><img src="Images/top/3.jpg"/></th>' +
-                           '<th width="291" scope="col"><strong>生物分离虚拟仿真技术平台</strong></th></tr> <tr>' +
-                           '<td align="center"><p><strong>·</strong>发酵液的板框过滤 <strong>·</strong>溶媒萃取技术 <br />' +
-                           '<strong>·</strong>工业级膜分离技术 <strong>·</strong>产品结晶技术 <br />' +
-                           '<strong>·</strong>大型离子交换技术 <strong>·</strong>产品喷雾干燥<br /></p>' +
-                           '</td> </tr></table></div></div></div>');
-            var $tip4 = $('<div id="tip"><div class="t_box"><div><s><i></i></s>' +
-                            '<table width="402" border="0" cellpadding="1" cellspacing="1"><tr>' +
-                           '<th width="151" rowspan="2" align="center" valign="top" scope="col"><img src="Images/top/4.jpg"/></th>' +
-                            '<th width="251" scope="col"><strong>“三废”处理技术虚拟仿真技术平台</strong></th></tr><tr><td>' +
-                            '<p ><strong>·</strong>燃煤废气除尘<br />' +
-                            '<strong>·</strong>发酵废水污染处理<br />' +
-                            '<strong>·</strong>发酵废渣资源化利用<br />' +
-                            '</p</td></tr></table></div></div></div>');
-            var $tip5 = $('<div id="tip"><div class="t_box"><div><s><i></i></s><p align="center"><strong>虚拟仿真实验项目</strong></p><p>' +
-                            '<strong>·</strong>啤酒虚拟仿真发酵生产工艺</p><p>' +
-                            '<strong>·</strong>青霉素虚拟仿真发酵生产工艺</p></div></div></div>');
+            var $tip2 = $('<div id="tip">'+
+							'  <div class="t_box">'+
+							'    <div><s><i></i></s> '+
+							'      <table border="0" cellpadding="1" cellspacing="1">'+
+							'	    <tr>'+
+							'		  <th rowspan="2" align="center" valign="middle" scope="col"><img src="Images/top/2.jpg" height="92"/></th> '+
+							'          <th scope="col"><strong>发酵过程工程虚拟仿真技术平台</strong></th>'+
+							'		</tr>'+
+							'		<tr>  '+
+							'            <td>'+
+							'			  <p style="padding-left:.5em; line-height:1.5em;">&nbsp;■&nbsp;发酵原材料制备流程 <br /> '+
+							'			  &nbsp;■&nbsp;发酵原料高温连续灭菌流程 <br />'+
+							'			  &nbsp;■&nbsp;大规模发酵用无菌空气制备流程 <br />'+
+							'			  &nbsp;■&nbsp;发酵过程多参数优化控制流程 </p>'+
+							'			</td> '+
+							'        </tr>'+
+							'      </table>'+
+							'	</div>'+
+							'  </div>'+
+							'</div>');
+            var $tip3 = $('<div id="tip">'+
+							'  <div class="t_box">'+
+							'    <div><s><i></i></s> '+
+							'      <table width="340" border="0" cellpadding="1" cellspacing="1"> '+
+							'	    <tr> '+
+							'          <th rowspan="2" align="center" valign="middle" scope="col"><img src="Images/top/3.jpg" height="92"/></th> '+
+							'          <th scope="col"><strong>生物分离虚拟仿真技术平台</strong></th>'+
+							'		</tr> '+
+							'		<tr>  '+
+							'          <td align="center">'+
+							'		    <p style="line-height:1.5em;">'+
+							'			   ■&nbsp;发酵液的板框过滤&nbsp;&nbsp;■&nbsp;溶媒萃取技术 <br /> '+
+							'              ■&nbsp;工业级膜分离技术&nbsp;&nbsp;■&nbsp;产品结晶技术 <br /> '+
+							'			   ■&nbsp;大型离子交换技术&nbsp;&nbsp;■&nbsp;产品喷雾干燥<br />'+
+							'			</p> '+
+							'          </td> '+
+							'		</tr>'+
+							'      </table>'+
+							'	</div>'+
+							'  </div>'+
+							' </div>');
+            var $tip4 = $('<div id="tip">'+
+							'  <div class="t_box"> '+
+							'    <div><s><i></i></s> '+
+							'      <table width="320" border="0" cellpadding="1" cellspacing="1">'+
+							'	    <tr> '+
+							'          <th rowspan="2" align="center" valign="middle" scope="col"><img src="Images/top/4.jpg" height="92"/></th> '+
+							'          <th scope="col"><strong>“三废”处理技术虚拟仿真技术平台</strong></th>'+
+							'		</tr>'+
+							'		<tr>'+
+							'		  <td> '+
+							'            <p style="padding-left:.5em; line-height:1.5em;">'+
+							'			   &nbsp;■&nbsp;燃煤废气除尘<br /> '+
+							'               &nbsp;■&nbsp;发酵废水污染处理<br /> '+
+							'               &nbsp;■&nbsp;发酵废渣资源化利用<br /> '+
+							'            </p>'+
+							'		  </td>'+
+							'		</tr>'+
+							'	  </table>'+
+							'	</div>'+
+							'  </div>'+
+							'</div>');
+            var $tip5 = $('<div id="tip">'+
+							'  <div class="t_box">'+
+							'    <div style="width:250;"><s><i></i></s>'+
+							'	  <p style="padding-left:.5em; text-indent:1em; line-height:1.5em;">'+
+							'	    <strong>虚拟仿真实验项目</strong><br />'+
+							'	    &nbsp;&nbsp;1、啤酒虚拟仿真发酵生产工艺<br />'+
+							'	    &nbsp;&nbsp;2、青霉素虚拟仿真发酵生产工艺<br />'+
+							'		&nbsp;&nbsp;3、...'+
+							'	  </p>'+
+							'    </div>'+
+							'  </div>'+
+							'</div>');
 
             $('#area1').mouseover(function () {
                 $('body').append($tip1);
@@ -151,7 +199,7 @@
         <table width="1092" border="0" cellspacing="1" cellpadding="1" align="center">
             <tr align="center">
                 <th height="36" colspan="2" align="left" valign="middle" class="longpieces" scope="row">
-                    <img src="Images/top/未标题-4_01.jpg" width="178" height="35" />
+                    <img src="Images/top/t1.jpg" width="178" height="35" />
                 </th>
             </tr>
             <tr>
@@ -212,9 +260,9 @@
     <div  style="width: 1092px;" align="center">
 	<table width="1092" border="0" cellspacing="1" cellpadding="3">
   <tr>
-    <td align="left" width="276" height="36"><img src="Images/top/未标题-4_02.jpg" width="178" height="35" /></td>
-    <td align="left" height="36" colspan="2"><img src="Images/top/未标题-4_03.jpg" width="178" height="35" /></td>
-    <td align="left" height="36" ><img src="Images/top/未标题-4_04.jpg" width="178" height="35" /></td>
+    <td align="left" width="276" height="36"><img src="Images/top/t2.jpg" height="35" /></td>
+    <td align="left" height="36" colspan="2"><img src="Images/top/t3.jpg" height="35" /></td>
+    <td align="left" height="36" ><img src="Images/top/t4.jpg"  height="35" /></td>
   </tr>
   <tr>
     <td width="276" height="140"><table width="276" border="0" cellpadding=".5" cellspacing=".5">
@@ -267,10 +315,10 @@
                         </tbody>
       </table></td></tr></table>
 	</td>
-    <td width="288" align="left" valign="center" ><table><tr><td height="132"  bgcolor="#7C0606">
+    <td width="336" align="left" valign="center" ><table><tr><td height="132"  bgcolor="#7C0606">
 	
 	
-	<table  width="280"  border="0" cellspacing="1" cellpadding="1" ><tbody><tr>
+	<table  width="328"  border="0" cellspacing="1" cellpadding="1" ><tbody><tr>
                                 <td height="25">
                                     <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                         <tbody>
@@ -316,14 +364,14 @@
       </tr></tbody></table>
 	  
 	  </td></tr></table></td>
-    <td ><table width="100%" height="132"  border="0"  cellpadding="0" cellspacing="0">
+    <td ><table width="100%" height="132"  border="0"  cellpadding="3"  cellspacing="0">
       <tr>
-        <td width="50%" height="50%" bgcolor="#7C0606" style="border:thin; border-style:none"  align="center" valign="middle"><img src="Images/top/r1.jpg" /></td>
-        <td width="50%" height="50%" bgcolor="#7C0606" style="border:thin; border-style:none" align="center" valign="middle" ><img src="Images/top/r2.jpg" /></td>
+        <td width="50%" height="50%" style="border:thin; border-style:none"  align="right" valign="middle"><img src="Images/top/r1.jpg" /></td>
+        <td width="50%" height="50%" style="border:thin; border-style:none" align="left" valign="middle" ><img src="Images/top/r2.jpg" /></td>
       </tr>
       <tr>
-        <td width="50%" height="50%" bgcolor="#7C0606"  style="border:thin; border-style:none" align="center" valign="middle" ><img src="Images/top/r3.jpg" /></td>
-        <td width="50%" height="50%" bgcolor="#7C0606" style="border:thin; border-style:none" align="center" valign="middle" ><img src="Images/top/r4.jpg" /></td>
+        <td width="50%" height="50%" style="border:thin; border-style:none"  align="right" valign="middle" ><img src="Images/top/r3.jpg" /></td>
+        <td width="50%" height="50%" style="border:thin; border-style:none" align="left" valign="middle" ><img src="Images/top/r4.jpg" /></td>
       </tr>
     </table></td>
   </tr>
