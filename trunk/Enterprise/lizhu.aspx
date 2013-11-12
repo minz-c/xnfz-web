@@ -10,7 +10,7 @@
                     <dl id="gallery">
                         <dt>合作企业
                             <dd>
-                                <a href="lizhu.html" target="ifrRight">丽珠集团</a></dd>
+                                <a href="lizhu.html" target="ifrRight">丽珠集团福兴医药有限公司</a></dd>
                         </dt>
                     </dl>
                 </div>

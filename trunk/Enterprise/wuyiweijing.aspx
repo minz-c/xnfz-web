@@ -18,7 +18,7 @@
                 </div>
             </td>
             <td width="842">
-             <iframe id="ifrRight" name="ifrRight"  target="_self"  height="360" 
+             <iframe id="ifrRight" name="ifrRight"  target="_self"  height="410" 
                     style="border-style: none; border-width: 0px; margin: 0px; padding: 0px;" 
                     width="100%" src="wuyiweijing.htm"></iframe>
             </td>

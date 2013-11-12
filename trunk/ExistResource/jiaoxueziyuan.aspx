@@ -4,7 +4,7 @@
     <script type="text/javascript">
         function AClick(i) {
             switch (i) {
-                case 1: $('#ifrRight').height(440);
+                case 1: $('#ifrRight').height(1000);
                     break;
                 case 2: $('#ifrRight').height(500);
                     break;
@@ -23,7 +23,7 @@
             <td width="250" align="left" valign="top">
                 <div id="lmenu">
                     <dl id="gallery">
-                        <dt>已有基础
+                        <dt>教学资源
                             <dd>
                                 <a href="jiaoxueziyuan.html" target="ifrRight">教学资源</a></dd>
                                 <dd>
@@ -33,7 +33,7 @@
                 </div>
             </td>
             <td width="842">
-               <iframe id="ifrRight" name="ifrRight"  target="_self"  height="450" 
+               <iframe id="ifrRight" name="ifrRight"  target="_self"  height="440" 
                     style="border-style: none; border-width: 0px; margin: 0px; padding: 0px;" 
                     width="842" src="jiaoxueziyuan.html"></iframe>
             </td>

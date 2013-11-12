@@ -3,107 +3,162 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
     <script src="JavaScript/jquery-1.10.2.js" type="text/javascript"></script>
-<style type="text/css">
+    <style type="text/css">
+        #tip
+        {
+            position: absolute;
+            color: #333;
+            display: none;
+        }
+        #tip s
+        {
+            position: absolute;
+            top: 40px;
+            left: -20px;
+            display: block;
+            width: 0px;
+            height: 0px;
+            font-size: 0px;
+            line-height: 0px;
+            border-color: transparent #BBA transparent transparent;
+            border-style: dashed solid dashed dashed;
+            border-width: 10px;
+        }
+        #tip s i
+        {
+            position: absolute;
+            top: -10px;
+            left: -8px;
+            display: block;
+            width: 0px;
+            height: 0px;
+            font-size: 0px;
+            line-height: 0px;
+            border-color: transparent #fff transparent transparent;
+            border-style: dashed solid dashed dashed;
+            border-width: 10px;
+        }
+        #tip .t_box
+        {
+            position: relative;
+            background-color: #CCC;
+            filter: alpha(opacity=50);
+            -moz-opacity: 0.5;
+            bottom: -3px;
+            right: -3px;
+        }
+        #tip .t_box div
+        {
+            position: relative;
+            background-color: #FFF;
+            border: 1px solid #ACA899;
+            background: #FFF;
+            padding: 1px;
+            top: -3px;
+            left: -3px;
+        }
+        
+        .tip
+        {
+            width: 82px;
+            height: 82px;
+            border: 1px solid #DDD;
+        }
+    </style>
+    <script type="text/javascript">
 
-#tip   {position:absolute;color:#333;display:none;}
-#tip s   {position:absolute;top:40px;left:-20px;display:block;width:0px;height:0px;font-size:0px;line-height:0px;border-color:transparent #BBA transparent transparent;border-style:dashed solid dashed dashed;border-width:10px;}
-#tip s i   {position:absolute;top:-10px;left:-8px;display:block;width:0px;height:0px;font-size:0px;line-height:0px;border-color:transparent #fff transparent transparent;border-style:dashed solid dashed dashed;border-width:10px;}
-#tip .t_box   {position:relative;background-color:#CCC;filter:alpha(opacity=50);-moz-opacity:0.5;bottom:-3px;right:-3px;}
-#tip .t_box div  {position:relative;background-color:#FFF;border:1px solid #ACA899;background:#FFF;padding:1px;top:-3px;left:-3px;}
- 
-.tip   {width:82px;height:82px;border:1px solid #DDD;}
-</style>
-<script type="text/javascript">
+        $(function () {
+            //        var arraytips = [];
+            var $tip1 = $('<div id="tip"><div class="t_box"><div  style="width:107"><s><i></i></s>' +
+                            '<table width="410" height="121" border="0" cellpadding="1" cellspacing="1"><tr>' +
+                            '<th rowspan="2" scope="col"><img src="Images/top/1.jpg" width="107" height="121" /></th>' +
+                            '<th scope="col"><strong>现代分子育种（企业级）虚拟仿真技术平台</strong></th></tr><tr>' +
+                            '<td><p style="padding-left:.5em; text-indent:2em">现代分子育种（企业级）虚拟仿真技术平台以生物制药企业技术研发部门为蓝本，拟建设以下具体虚拟仿真实验项目：DNA克隆、重组蛋白表达（大肠杆菌系统、毕赤酵母系统和CHO细胞系统）、Western blot鉴定表达产物和新型蛋白质药物分子的高通量筛选。</p></td>' +
+                            '</tr></table></div></div></div>');
+            var $tip2 = $('<div id="tip"><div class="t_box"><div><s><i></i></s>' +
+                            '<table border="0" cellpadding="1" cellspacing="1"><tr>' +
+                            '<th rowspan="2" align="center" valign="top" scope="col"><img src="Images/top/2.jpg"/></th>' +
+                            '<th scope="col"><strong>发酵过程工程虚拟仿真技术平台</strong></th></tr><tr>' +
+                            '<td><p ><strong>·</strong>发酵原材料制备流程 <br />' + '<strong>·</strong>发酵原料高温连续灭菌流程 <br />' +
+                            '<strong>·</strong>大规模发酵用无菌空气制备流程 <br />' + '<strong>·</strong>发酵过程多参数优化控制流程 </p></td>' +
+                             '</tr></table></div></div></div></div>');
+            var $tip3 = $('<div id="tip"><div class="t_box"><div><s><i></i></s>' +
+                            '<table width="340" border="0" cellpadding="1" cellspacing="1"> <tr>' +
+                            '<th width="151" rowspan="2" align="center" valign="top" scope="col"><img src="Images/top/3.jpg"/></th>' +
+                           '<th width="291" scope="col"><strong>生物分离虚拟仿真技术平台</strong></th></tr> <tr>' +
+                           '<td align="center"><p><strong>·</strong>发酵液的板框过滤 <strong>·</strong>溶媒萃取技术 <br />' +
+                           '<strong>·</strong>工业级膜分离技术 <strong>·</strong>产品结晶技术 <br />' +
+                           '<strong>·</strong>大型离子交换技术 <strong>·</strong>产品喷雾干燥<br /></p>' +
+                           '</td> </tr></table></div></div></div>');
+            var $tip4 = $('<div id="tip"><div class="t_box"><div><s><i></i></s>' +
+                            '<table width="402" border="0" cellpadding="1" cellspacing="1"><tr>' +
+                           '<th width="151" rowspan="2" align="center" valign="top" scope="col"><img src="Images/top/4.jpg"/></th>' +
+                            '<th width="251" scope="col"><strong>“三废”处理技术虚拟仿真技术平台</strong></th></tr><tr><td>' +
+                            '<p ><strong>·</strong>燃煤废气除尘<br />' +
+                            '<strong>·</strong>发酵废水污染处理<br />' +
+                            '<strong>·</strong>发酵废渣资源化利用<br />' +
+                            '</p</td></tr></table></div></div></div>');
+            var $tip5 = $('<div id="tip"><div class="t_box"><div><s><i></i></s><p align="center"><strong>虚拟仿真实验项目</strong></p><p>' +
+                            '<strong>·</strong>啤酒虚拟仿真发酵生产工艺</p><p>' +
+                            '<strong>·</strong>青霉素虚拟仿真发酵生产工艺</p></div></div></div>');
 
-    $(function () {
-//        var arraytips = [];
-        var $tip1 = $('<div id="tip"><div class="t_box"><div><s><i></i></s><p><strong>现代分子育种（企业级）虚拟仿真技术平台</strong></p><p>' +
-                            '现代分子育种（企业级）虚拟仿真技术平台</p><p>' +
-                            '以生物制药企业技术研发部门为蓝本，拟建设</p><p>' +
-                            '以下具体虚拟仿真实验项目：DNA克隆、重组</p><p>' +
-                            '蛋白表达（大肠杆菌系统、毕赤酵母系统和</p><p>' +
-                            'CHO细胞系统）、Western blot鉴定表达产物</p><p>' +
-                            '和新型蛋白质药物分子的高通量筛选。</p></div>' +
-                            '<div align="center"><img src="images/1.jpg"/></div></div></div>');
-        var $tip2 = $('<div id="tip"><div class="t_box"><div><s><i></i></s><p><strong>发酵过程工程虚拟仿真技术平台</strong></p><p>' +
-                            '(1). 发酵原材料制备流程</p><p>' +
-                            '(2). 发酵原料高温连续灭菌流程</p><p>' +
-                            '(3). 大规模发酵用无菌空气制备流程</p><p>' +
-                            '(4). 发酵过程多参数优化控制流程</p></div>' +
-                            '<div align="center"><img src="images/2.jpg"/></div></div></div>');
-        var $tip3 = $('<div id="tip"><div class="t_box"><div><s><i></i></s><p><strong>生物分离虚拟仿真技术平台</strong></p><p>' +
-                            '(1).发酵液的板框过滤</p><p>' +
-                            '(2).工业级膜分离技术</p><p>' +
-                            '(3). 大型离子交换技术</p><p>' +
-                            '(4).溶媒萃取技术</p><p>' +
-                            '(5). 产品结晶技术</p>' +
-                            '(6).产品喷雾干燥</p></div>' +
-                            '<div align="center"><img src="images/3.jpg"/></div></div></div>');
-        var $tip4 = $('<div id="tip"><div class="t_box"><div><s><i></i></s><p><strong>“三废”处理技术虚拟仿真技术平台</strong></p><p>' +
-                            '(1).燃煤废气除尘</p><p>' +
-                            '(2).发酵废水污染处理</p><p>' +
-                            '(3).发酵废渣资源化利用</p></div>'+
-                            '<div align="center"><img src="images/4.jpg"/></div></div></div>');
-        var $tip5 = $('<div id="tip"><div class="t_box"><div><s><i></i></s><p><strong>虚拟仿真实验项目</strong></p><p>' +
-                            '1.啤酒虚拟仿真发酵生产工艺</p><p>' +
-                            '2.青霉素虚拟仿真发酵生产工艺</p></div></div></div>');
+            $('#area1').mouseover(function () {
+                $('body').append($tip1);
+                $('#tip').show('fast');
+            }).mouseout(function () {
+                $('#tip').remove();
+            }).mousemove(function (e) {
+                $('#tip').css({ "top": (e.pageY - 60) + "px", "left": (e.pageX + 30) + "px" })
+            });
+            $('#area2').mouseover(function () {
+                $('body').append($tip2);
+                $('#tip').show('fast');
+            }).mouseout(function () {
+                $('#tip').remove();
+            }).mousemove(function (e) {
+                $('#tip').css({ "top": (e.pageY - 60) + "px", "left": (e.pageX + 30) + "px" })
+            });
+            $('#area3').mouseover(function () {
+                $('body').append($tip3);
+                $('#tip').show('fast');
+            }).mouseout(function () {
+                $('#tip').remove();
+            }).mousemove(function (e) {
+                $('#tip').css({ "top": (e.pageY - 60) + "px", "left": (e.pageX + 30) + "px" })
+            });
+            $('#area4').mouseover(function () {
+                $('body').append($tip4);
+                $('#tip').show('fast');
+            }).mouseout(function () {
+                $('#tip').remove();
+            }).mousemove(function (e) {
+                $('#tip').css({ "top": (e.pageY - 60) + "px", "left": (e.pageX + 30) + "px" })
+            });
+            $('#area5').mouseover(function () {
+                $('body').append($tip5);
+                $('#tip').show('fast');
+            }).mouseout(function () {
+                $('#tip').remove();
+            }).mousemove(function (e) {
+                $('#tip').css({ "top": (e.pageY - 60) + "px", "left": (e.pageX + 30) + "px" })
+            });
+        })
 
-        $('#area1').mouseover(function () {
-            $('body').append($tip1);
-            $('#tip').show('fast');
-        }).mouseout(function () {
-            $('#tip').remove();
-        }).mousemove(function (e) {
-            $('#tip').css({ "top": (e.pageY - 60) + "px", "left": (e.pageX + 30) + "px" })
-        });
-        $('#area2').mouseover(function () {
-            $('body').append($tip2);
-            $('#tip').show('fast');
-        }).mouseout(function () {
-            $('#tip').remove();
-        }).mousemove(function (e) {
-            $('#tip').css({ "top": (e.pageY - 60) + "px", "left": (e.pageX + 30) + "px" })
-        });
-        $('#area3').mouseover(function () {
-            $('body').append($tip3);
-            $('#tip').show('fast');
-        }).mouseout(function () {
-            $('#tip').remove();
-        }).mousemove(function (e) {
-            $('#tip').css({ "top": (e.pageY - 60) + "px", "left": (e.pageX + 30) + "px" })
-        });
-        $('#area4').mouseover(function () {
-            $('body').append($tip4);
-            $('#tip').show('fast');
-        }).mouseout(function () {
-            $('#tip').remove();
-        }).mousemove(function (e) {
-            $('#tip').css({ "top": (e.pageY - 60) + "px", "left": (e.pageX + 30) + "px" })
-        });
-        $('#area5').mouseover(function () {
-            $('body').append($tip5);
-            $('#tip').show('fast');
-        }).mouseout(function () {
-            $('#tip').remove();
-        }).mousemove(function (e) {
-            $('#tip').css({ "top": (e.pageY - 60) + "px", "left": (e.pageX + 30) + "px" })
-        });
-    })
-
-</script>
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="server">
-
     <div id="divTop" style="width: 1092px;" align="center">
         <table width="1092" border="0" cellspacing="1" cellpadding="1" align="center">
             <tr align="center">
-                <th width="36" height="300" class="longpieces" scope="row">
-                    <img src="Images/建设内容.jpg" />
+                <th height="36" colspan="2" align="left" valign="middle" class="longpieces" scope="row">
+                    <img src="Images/top/未标题-4_01.jpg" width="178" height="35" />
                 </th>
-                <td width="740">
+            </tr>
+            <tr>
+                <th width="740" height="300" align="left" class="longpieces" scope="row">
                     <img src="Images/虚拟发酵工厂.jpg" width="740" height="300" border="0" usemap="#Map" />
-                </td>
-                <td width="300" height="300">
+                </th>
+                <td width="350" height="300">
                     <table width="100%" height="300" border="0" cellpadding="0" cellspacing="0">
                         <tbody>
                             <tr>
@@ -114,7 +169,7 @@
                                         <strong>酷播迷你(CuPlayerMiniV2.2) 提示：您的Flash Player版本过低，请<a href="http://www.CuPlayer.com/">点此进行播放器升级</a>！</strong>
                                     </div>
                                     <script type="text/javascript">
-                                        var so = new SWFObject("cuplayer/CuPlayerMiniV22_Black_S.swf", "CuPlayer", "300", "300", "9", "#000000");
+                                        var so = new SWFObject("cuplayer/CuPlayerMiniV22_Black_S.swf", "CuPlayer", "350", "300", "9", "#000000");
                                         so.addParam("allowfullscreen", "true");
                                         so.addParam("allowscriptaccess", "always");
                                         so.addParam("wmode", "opaque");
@@ -123,7 +178,7 @@
                                         so.addVariable("CuPlayerFile", "http://life.fjnu.edu.cn/flv/fjnuxnfz.flv");
                                         so.addVariable("CuPlayerImage", "cuplayer/Images/flashChangfa2.jpg");
                                         so.addVariable("CuPlayerShowImage", "flash");
-                                        so.addVariable("CuPlayerWidth", "300");
+                                        so.addVariable("CuPlayerWidth", "350");
                                         so.addVariable("CuPlayerHeight", "300");
                                         so.addVariable("CuPlayerAutoPlay", "true");
                                         so.addVariable("CuPlayerAutoRepeat", "false");
@@ -142,75 +197,97 @@
             </tr>
         </table>
         <map name="Map" id="Map">
-<area id="area1" shape="poly" coords="54,127,59,158,109,211,163,195,159,156,104,116" href="#现代分子育种（企业级）虚拟仿真技术平台" />
-<area id="area2" shape="poly" coords="220,86,221,99,217,103,283,136,298,150,354,140,352,105,266,76" href="#发酵过程工程虚拟仿真技术平台" />
-<area id="area3" shape="poly" coords="155,106,157,140,216,174,255,161,259,131,195,98" href="#生物分离虚拟仿真技术平台" />
-<area id="area4" shape="poly" coords="412,50,401,55,403,67,429,76,459,91,478,87,450,59" href="#“三废”处理技术虚拟仿真技术平台" />
-<area id="area5" shape="poly" coords="247,164,253,195,383,287,408,289,473,247,466,212,455,202,432,190,385,211,324,176,335,171,325,161,310,166,277,153" href="#5" />
-</map>
+            <area id="area1" shape="poly" coords="54,127,59,158,109,211,163,195,159,156,104,116"
+                href="#现代分子育种（企业级）虚拟仿真技术平台" />
+            <area id="area2" shape="poly" coords="220,86,221,99,217,103,283,136,298,150,354,140,352,105,266,76"
+                href="#发酵过程工程虚拟仿真技术平台" />
+            <area id="area3" shape="poly" coords="155,106,157,140,216,174,255,161,259,131,195,98"
+                href="#生物分离虚拟仿真技术平台" />
+            <area id="area4" shape="poly" coords="412,50,401,55,403,67,429,76,459,91,478,87,450,59"
+                href="#“三废”处理技术虚拟仿真技术平台" />
+            <area id="area5" shape="poly" coords="247,164,253,195,383,287,408,289,473,247,466,212,455,202,432,190,385,211,324,176,335,171,325,161,310,166,277,153"
+                href="#5" />
+        </map>
     </div>
-    <div id="divMiddle"  style="width: 1092px;" align="center">
+    <div  style="width: 1092px;" align="center">
 	<table width="1092" border="0" cellspacing="1" cellpadding="3">
   <tr>
-    <td width="36" height="140" rowspan="2"><img src="Images/已有基础.jpg" width="36" height="140" alt=" " /></td>
-    <td width="306" height="36"><img src="Images/虚拟仿真资源.jpg" width="306" height="36" /></td>
-    <td height="36" colspan="2"><img src="Images/实体平台资源.jpg" alt=" " width="580" height="36" /></td>
-    <td height="36" align="left" valign="top"><img src="Images/教学资源.jpg" width="100%" height="36" /></td>
+    <td align="left" width="276" height="36"><img src="Images/top/未标题-4_02.jpg" width="178" height="35" /></td>
+    <td align="left" height="36" colspan="2"><img src="Images/top/未标题-4_03.jpg" width="178" height="35" /></td>
+    <td align="left" height="36" ><img src="Images/top/未标题-4_04.jpg" width="178" height="35" /></td>
   </tr>
   <tr>
-    <td width="306"><table width="306" height="100" border="0" cellpadding=".5" cellspacing=".5">
+    <td width="276" height="140"><table width="276" border="0" cellpadding=".5" cellspacing=".5">
       <tr>
-        <td width="107" bgcolor="#630000"><font color="#FFFFFF">啤酒发酵生产工艺仿真</font></td>
-        <td width="2"></td>
-        <td width="106" bgcolor="#630000"><font color="#FFFFFF">青霉素发酵生产工艺仿真</font></td>
-        <td  width="2"></td>
-        <td width="105" bgcolor="#630000"><font color="#FFFFFF">虚拟实验课堂</font></td>
+        <td width="90" align="center" valign="bottom" ><img src="Images/top/top1.jpg" width="90" height="132" /> </td>
+        <td width="3"  valign="top" ></td>
+        <td width="90" valign="bottom" ><img src="Images/top/top2.jpg" width="90" height="132" /> </td>
+        <td width="3"  valign="top" ></td>
+        <td width="90"  ><img src="Images/top/top3.jpg" width="90" height="132" /> </td>
       </tr>
     </table></td>
-    <td width="306" align="left" valign="top"><table width="288" border="0" cellspacing="0" cellpadding="0">
+    <td width="308" align="left" valign="center" >
+	<table width="100%"  border="0" cellspacing="1" cellpadding="1" >
+	  <tr><td  height="132"  bgcolor="#7C0606">
+	  <table width="300" border="0" cellspacing="0" cellpadding="0">
                         <tbody>
                             <tr>
-                                <td width="288" height="25">
+                                <td width="300" height="25">
                                     <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                         <tbody>
                                             <tr>
                                                 <td align="left">
-                                                    <a href="ExistResource/shitipingtai.html" target="_blank" title="工业微生物发酵技术国家地方联合工程研究中心">工业微生物发酵技术国家地方联合工程研究中心</a>                                                </td>
+                                                    &nbsp;<a href="ExistResource/shitipingtai.html" target="_blank" title="工业微生物发酵技术国家地方联合工程研究中心"><img src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 工业微生物发酵技术国家地方联合工程研究中心</font></a>                                                </td>
                                             </tr>
                                         </tbody>
                               </table>                                </td>
                             </tr>
                             <tr>
-                                <td height="25">
+                                <td width="300" height="25">
                                     <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                         <tbody>
                                             <tr>
                                                 <td align="left">
-                                                    <a href="ExistResource/shitipingtai1.htm" target="_blank" title="工业微生物教育部工程研究中心">工业微生物教育部工程研究中心</a>                                                </td>
+                                                    &nbsp;<a href="ExistResource/shitipingtai1.htm" target="_blank" title="工业微生物教育部工程研究中心"><img src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 工业微生物教育部工程研究中心</font></a>                                                </td>
                                             </tr>
                                         </tbody>
-                                    </table>                                </td>
+                              </table>                                </td>
                             </tr>
                             <tr>
-                                <td height="25">
+                                <td width="300" height="25">
                                     <table width="" cellpadding="0" cellspacing="0" border="0">
                                         <tbody>
                                             <tr>
                                                 <td align="left">
-                                                    <a href="ExistResource/shitipingtai2.htm" target="_blank" title="国家级生物学实验教学示范中心工程实训中心">国家级生物学实验教学示范中心工程实训中心</a>                                                </td>
+                                                    &nbsp;<a href="ExistResource/shitipingtai2.htm" target="_blank" title="国家级生物学实验教学示范中心工程实训中心"><img src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 国家级生物学实验教学示范中心工程实训中心</font></a>                                                </td>
                                             </tr>
                                         </tbody>
-                                    </table>                                </td>
+                              </table>                                </td>
                             </tr>
                         </tbody>
-      </table></td>
-    <td width="260" align="left" valign="top"><table  width="260"   border="0" cellspacing="0" cellpadding="0"><tbody><tr>
+      </table></td></tr></table>
+	</td>
+    <td width="288" align="left" valign="center" ><table><tr><td height="132"  bgcolor="#7C0606">
+	
+	
+	<table  width="280"  border="0" cellspacing="1" cellpadding="1" ><tbody><tr>
+                                <td height="25">
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td width="280" align="left">
+                                                    &nbsp;<a href="Enterprise/qingpi.htm" target="_blank" title="青岛啤酒福州有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 青岛啤酒福州有限公司</font></a>                                                </td>
+                                            </tr>
+                                        </tbody>
+                                  </table>                                </td>
+                            </tr>
+                            <tr>
                                 <td height="25">
                                     <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                         <tbody>
                                             <tr>
                                                 <td align="left">
-                                                    <a href="http://www.tsingtao.com.cn/" target="_blank" title="青岛啤酒福州有限公司">青岛啤酒福州有限公司</a>                                                </td>
+                                                    &nbsp;<a href="Enterprise/wuyiweijing.htm" target="_blank" title="福建省建阳武夷味精有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 福建省建阳武夷味精有限公司</font></a>                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>                                </td>
@@ -221,7 +298,7 @@
                                         <tbody>
                                             <tr>
                                                 <td align="left">
-                                                    <a href="http://www.wuyiwj.com" target="_blank" title="福建省建阳武夷味精有限公司">福建省建阳武夷味精有限公司</a>                                                </td>
+                                                    &nbsp;<a href="Enterprise/lizhu.html" target="_blank" title="丽珠集团福兴医药有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 丽珠集团福兴医药有限公司</font></a>                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>                                </td>
@@ -232,48 +309,23 @@
                                         <tbody>
                                             <tr>
                                                 <td align="left">
-                                                    <a href="http://www.fxpharm.com" target="_blank" title="丽珠集团福兴医药有限公司">丽珠集团福兴医药有限公司</a>                                                </td>
+                                                    &nbsp;<a href="Enterprise/tianqu.html" target="_blank" title="万城集团福建天趣网络技术有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 万城集团福建天趣网络技术有限公司</font></a>                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>                                </td>
-                            </tr>
-                            <tr>
-                                <td height="25">
-                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td align="left">
-                                                    <a href="http://www.mscgame.com/" target="_blank" title="万城集团福建天趣网络技术有限公司">万城集团福建天趣网络技术有限公司</a>                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>                                </td>
-      </tr></tbody></table></td>
-    <td align="left" valign="top"><table width="100" border="0" cellspacing="0" cellpadding="0">
-                        <tbody>
-                            <tr>
-                                <td height="25">
-                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td align="left">
-                                                    <a href="#教学资源" target="_blank" title="教学资源">教学资源</a>                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>                                </td>
-                            </tr>
-                            <tr>
-                                <td height="25">
-                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td align="left">
-                                                    <a href="#精品课程" target="_blank" title="精品课程">精品课程</a>                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>                                </td>
-                            </tr>
-                        </tbody>
-      </table></td>
+      </tr></tbody></table>
+	  
+	  </td></tr></table></td>
+    <td ><table width="100%" height="132"  border="0"  cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="50%" height="50%" bgcolor="#7C0606" style="border:thin; border-style:none"  align="center" valign="middle"><img src="Images/top/r1.jpg" /></td>
+        <td width="50%" height="50%" bgcolor="#7C0606" style="border:thin; border-style:none" align="center" valign="middle" ><img src="Images/top/r2.jpg" /></td>
+      </tr>
+      <tr>
+        <td width="50%" height="50%" bgcolor="#7C0606"  style="border:thin; border-style:none" align="center" valign="middle" ><img src="Images/top/r3.jpg" /></td>
+        <td width="50%" height="50%" bgcolor="#7C0606" style="border:thin; border-style:none" align="center" valign="middle" ><img src="Images/top/r4.jpg" /></td>
+      </tr>
+    </table></td>
   </tr>
 </table>
 
@@ -472,7 +524,7 @@
                                                                                                                 <tbody>
                                                                                                                     <tr>
                                                                                                                         <td height="18" align="center" style="font-size: 12px">
-                                                                                                                            牌匾
+                                                                                                                            生物领域学会
                                                                                                                         </td>
                                                                                                                     </tr>
                                                                                                                 </tbody>
@@ -508,7 +560,7 @@
                                                                                                                 <tbody>
                                                                                                                     <tr>
                                                                                                                         <td height="18" align="center" style="font-size: 12px">
-                                                                                                                            工业微生物发酵技术研究中心
+                                                                                                                            微生物发酵技术研究中心
                                                                                                                         </td>
                                                                                                                     </tr>
                                                                                                                 </tbody>
@@ -544,7 +596,7 @@
                                                                                                                 <tbody>
                                                                                                                     <tr>
                                                                                                                         <td height="18" align="center" style="font-size: 12px">
-                                                                                                                            工业微生物研究中心
+                                                                                                                            微生物研究中心
                                                                                                                         </td>
                                                                                                                     </tr>
                                                                                                                 </tbody>
@@ -580,7 +632,7 @@
                                                                                                                 <tbody>
                                                                                                                     <tr>
                                                                                                                         <td height="18" align="center" style="font-size: 12px">
-                                                                                                                            发酵平台
+                                                                                                                            发酵实验平台
                                                                                                                         </td>
                                                                                                                     </tr>
                                                                                                                 </tbody>
@@ -688,7 +740,7 @@
                                                                                                                 <tbody>
                                                                                                                     <tr>
                                                                                                                         <td height="18" align="center" style="font-size: 12px">
-                                                                                                                           工业微生物育种学
+                                                                                                                            工业微生物育种学
                                                                                                                         </td>
                                                                                                                     </tr>
                                                                                                                 </tbody>
@@ -724,7 +776,7 @@
                                                                                                                 <tbody>
                                                                                                                     <tr>
                                                                                                                         <td height="18" align="center" style="font-size: 12px">
-                                                                                                                           微生物工程
+                                                                                                                            微生物工程
                                                                                                                         </td>
                                                                                                                     </tr>
                                                                                                                 </tbody>
@@ -760,7 +812,7 @@
                                                                                                                 <tbody>
                                                                                                                     <tr>
                                                                                                                         <td height="18" align="center" style="font-size: 12px">
-                                                                                                                            合作企业
+                                                                                                                            企业实习
                                                                                                                         </td>
                                                                                                                     </tr>
                                                                                                                 </tbody>
@@ -796,7 +848,7 @@
                                                                                                                 <tbody>
                                                                                                                     <tr>
                                                                                                                         <td height="18" align="center" style="font-size: 12px">
-                                                                                                                            合作企业
+                                                                                                                            企业实践考察
                                                                                                                         </td>
                                                                                                                     </tr>
                                                                                                                 </tbody>
@@ -1030,7 +1082,7 @@
                                                                                                                 <tbody>
                                                                                                                     <tr>
                                                                                                                         <td height="18" align="center" style="font-size: 12px">
-                                                                                                                            工业微生物发酵技术研究中心
+                                                                                                                            微生物发酵技术研究中心
                                                                                                                         </td>
                                                                                                                     </tr>
                                                                                                                 </tbody>
@@ -1066,7 +1118,7 @@
                                                                                                                 <tbody>
                                                                                                                     <tr>
                                                                                                                         <td height="18" align="center" style="font-size: 12px">
-                                                                                                                            工业微生物研究中心
+                                                                                                                            微生物研究中心
                                                                                                                         </td>
                                                                                                                     </tr>
                                                                                                                 </tbody>
