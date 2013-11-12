@@ -307,7 +307,7 @@
                                         <tbody>
                                             <tr>
                                                 <td align="left">
-                                                    &nbsp;<a href="ExistResource/shitipingtai2.htm" target="_blank" title="国家级生物学实验教学示范中心工程实训中心"><img src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 国家级生物学实验教学示范中心工程实训中心</font></a>                                                </td>
+                                                    &nbsp;<a href="http://imece.fjnu.edu.cn" target="_blank" title="国家级生物学实验教学示范中心工程实训中心"><img src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 国家级生物学实验教学示范中心工程实训中心</font></a>                                                </td>
                                             </tr>
                                         </tbody>
                               </table>                                </td>
