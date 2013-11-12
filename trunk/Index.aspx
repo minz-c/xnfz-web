@@ -267,11 +267,11 @@
   <tr>
     <td width="276" height="140"><table width="276" border="0" cellpadding=".5" cellspacing=".5">
       <tr>
-        <td width="90" align="center" valign="bottom" ><img src="Images/top/top1.jpg" width="90" height="132" /> </td>
+        <td width="90" align="center" valign="bottom" ><a href="ExistResource/pijiufajiao.html" target="_blank"><img src="Images/top/top1.jpg" width="90" height="132" /></a></td>
         <td width="3"  valign="top" ></td>
-        <td width="90" valign="bottom" ><img src="Images/top/top2.jpg" width="90" height="132" /> </td>
+        <td width="90" valign="bottom" ><a href="ExistResource/qingmeisu.htm" target="_blank"><img src="Images/top/top2.jpg" width="90" height="132" /></a> </td>
         <td width="3"  valign="top" ></td>
-        <td width="90"  ><img src="Images/top/top3.jpg" width="90" height="132" /> </td>
+        <td width="90"  ><a href="http://life.fjnu.edu.cn/lifelab/index.html"  target="_blank"><img src="Images/top/top3.jpg" width="90" height="132" /></a> </td>
       </tr>
     </table></td>
     <td width="308" align="left" valign="center" >
@@ -285,7 +285,7 @@
                                         <tbody>
                                             <tr>
                                                 <td align="left">
-                                                    &nbsp;<a href="ExistResource/shitipingtai.html" target="_blank" title="工业微生物发酵技术国家地方联合工程研究中心"><img src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 工业微生物发酵技术国家地方联合工程研究中心</font></a>                                                </td>
+                                                    &nbsp;<a href="http://imece.fjnu.edu.cn" target="_blank" title="工业微生物发酵技术国家地方联合工程研究中心"><img src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 工业微生物发酵技术国家地方联合工程研究中心</font></a>                                                </td>
                                             </tr>
                                         </tbody>
                               </table>                                </td>
@@ -296,7 +296,7 @@
                                         <tbody>
                                             <tr>
                                                 <td align="left">
-                                                    &nbsp;<a href="ExistResource/shitipingtai1.htm" target="_blank" title="工业微生物教育部工程研究中心"><img src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 工业微生物教育部工程研究中心</font></a>                                                </td>
+                                                    &nbsp;<a href="http://imece.fjnu.edu.cn" target="_blank" title="工业微生物教育部工程研究中心"><img src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 工业微生物教育部工程研究中心</font></a>                                                </td>
                                             </tr>
                                         </tbody>
                               </table>                                </td>
@@ -357,7 +357,7 @@
                                         <tbody>
                                             <tr>
                                                 <td align="left">
-                                                    &nbsp;<a href="Enterprise/tianqu.html" target="_blank" title="万城集团福建天趣网络技术有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 万城集团福建天趣网络技术有限公司</font></a>                                                </td>
+                                                    &nbsp;<a href="http://www.mscgame.com/" target="_blank" title="万城集团福建天趣网络技术有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 万城集团福建天趣网络技术有限公司</font></a>                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>                                </td>
@@ -366,12 +366,12 @@
 	  </td></tr></table></td>
     <td ><table width="100%" height="132"  border="0"  cellpadding="3"  cellspacing="0">
       <tr>
-        <td width="50%" height="50%" style="border:thin; border-style:none"  align="right" valign="middle"><img src="Images/top/r1.jpg" /></td>
-        <td width="50%" height="50%" style="border:thin; border-style:none" align="left" valign="middle" ><img src="Images/top/r2.jpg" /></td>
+        <td width="50%" height="50%" style="border:thin; border-style:none"  align="right" valign="middle"><a href="ExistResource/jiaoxueziyuan.html" target="_blank"> <img src="Images/top/r1.jpg" /></a></td>
+        <td width="50%" height="50%" style="border:thin; border-style:none" align="left" valign="middle" ><a href="http://life.fjnu.edu.cn/rcpy/jpkc/520.html" target="_blank"> <img src="Images/top/r2.jpg" /></a></td>
       </tr>
       <tr>
-        <td width="50%" height="50%" style="border:thin; border-style:none"  align="right" valign="middle" ><img src="Images/top/r3.jpg" /></td>
-        <td width="50%" height="50%" style="border:thin; border-style:none" align="left" valign="middle" ><img src="Images/top/r4.jpg" /></td>
+        <td width="50%" height="50%" style="border:thin; border-style:none"  align="right" valign="middle" ><a href="login.aspx" target="_blank"><img src="Images/top/r3.jpg" /></a></td>
+        <td width="50%" height="50%" style="border:thin; border-style:none" align="left" valign="middle" ><a href="#" target="_blank"><img src="Images/top/r4.jpg" /></a></td>
       </tr>
     </table></td>
   </tr>
