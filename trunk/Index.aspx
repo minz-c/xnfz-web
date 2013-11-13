@@ -57,7 +57,6 @@
             top: -3px;
             left: -3px;
         }
-        
         .tip
         {
             width: 82px;
@@ -75,79 +74,79 @@
                             '<th scope="col" valign="middle"><strong>现代分子育种（企业级）虚拟仿真技术平台</strong></th></tr><tr>' +
                             '<td valign="top"><p style="padding-left:.5em; text-indent:2em; line-height:1.5em;">现代分子育种（企业级）虚拟仿真技术平台以生物制药企业技术研发部门为蓝本，拟建设以下具体虚拟仿真实验项目：DNA克隆、重组蛋白表达（大肠杆菌系统、毕赤酵母系统和CHO细胞系统）、Western blot鉴定表达产物和新型蛋白质药物分子的高通量筛选。</p></td>' +
                             '</tr></table></div></div></div>');
-            var $tip2 = $('<div id="tip">'+
-							'  <div class="t_box">'+
-							'    <div><s><i></i></s> '+
-							'      <table border="0" cellpadding="1" cellspacing="1">'+
-							'	    <tr>'+
-							'		  <th rowspan="2" align="center" valign="middle" scope="col"><img src="Images/top/2.jpg" height="92"/></th> '+
-							'          <th scope="col"><strong>发酵过程工程虚拟仿真技术平台</strong></th>'+
-							'		</tr>'+
-							'		<tr>  '+
-							'            <td>'+
-							'			  <p style="padding-left:.5em; line-height:1.5em;">&nbsp;■&nbsp;发酵原材料制备流程 <br /> '+
-							'			  &nbsp;■&nbsp;发酵原料高温连续灭菌流程 <br />'+
-							'			  &nbsp;■&nbsp;大规模发酵用无菌空气制备流程 <br />'+
-							'			  &nbsp;■&nbsp;发酵过程多参数优化控制流程 </p>'+
-							'			</td> '+
-							'        </tr>'+
-							'      </table>'+
-							'	</div>'+
-							'  </div>'+
+            var $tip2 = $('<div id="tip">' +
+							'  <div class="t_box">' +
+							'    <div><s><i></i></s> ' +
+							'      <table border="0" cellpadding="1" cellspacing="1">' +
+							'	    <tr>' +
+							'		  <th rowspan="2" align="center" valign="middle" scope="col"><img src="Images/top/2.jpg" height="92"/></th> ' +
+							'          <th scope="col"><strong>发酵过程工程虚拟仿真技术平台</strong></th>' +
+							'		</tr>' +
+							'		<tr>  ' +
+							'            <td>' +
+							'			  <p style="padding-left:.5em; line-height:1.5em;">&nbsp;■&nbsp;发酵原材料制备流程 <br /> ' +
+							'			  &nbsp;■&nbsp;发酵原料高温连续灭菌流程 <br />' +
+							'			  &nbsp;■&nbsp;大规模发酵用无菌空气制备流程 <br />' +
+							'			  &nbsp;■&nbsp;发酵过程多参数优化控制流程 </p>' +
+							'			</td> ' +
+							'        </tr>' +
+							'      </table>' +
+							'	</div>' +
+							'  </div>' +
 							'</div>');
-            var $tip3 = $('<div id="tip">'+
-							'  <div class="t_box">'+
-							'    <div><s><i></i></s> '+
-							'      <table width="340" border="0" cellpadding="1" cellspacing="1"> '+
-							'	    <tr> '+
-							'          <th rowspan="2" align="center" valign="middle" scope="col"><img src="Images/top/3.jpg" height="92"/></th> '+
-							'          <th scope="col"><strong>生物分离虚拟仿真技术平台</strong></th>'+
-							'		</tr> '+
-							'		<tr>  '+
-							'          <td align="center">'+
-							'		    <p style="line-height:1.5em;">'+
-							'			   ■&nbsp;发酵液的板框过滤&nbsp;&nbsp;■&nbsp;溶媒萃取技术 <br /> '+
-							'              ■&nbsp;工业级膜分离技术&nbsp;&nbsp;■&nbsp;产品结晶技术 <br /> '+
-							'			   ■&nbsp;大型离子交换技术&nbsp;&nbsp;■&nbsp;产品喷雾干燥<br />'+
-							'			</p> '+
-							'          </td> '+
-							'		</tr>'+
-							'      </table>'+
-							'	</div>'+
-							'  </div>'+
+            var $tip3 = $('<div id="tip">' +
+							'  <div class="t_box">' +
+							'    <div><s><i></i></s> ' +
+							'      <table width="340" border="0" cellpadding="1" cellspacing="1"> ' +
+							'	    <tr> ' +
+							'          <th rowspan="2" align="center" valign="middle" scope="col"><img src="Images/top/3.jpg" height="92"/></th> ' +
+							'          <th scope="col"><strong>生物分离虚拟仿真技术平台</strong></th>' +
+							'		</tr> ' +
+							'		<tr>  ' +
+							'          <td align="center">' +
+							'		    <p style="line-height:1.5em;">' +
+							'			   ■&nbsp;发酵液的板框过滤&nbsp;&nbsp;■&nbsp;溶媒萃取技术 <br /> ' +
+							'              ■&nbsp;工业级膜分离技术&nbsp;&nbsp;■&nbsp;产品结晶技术 <br /> ' +
+							'			   ■&nbsp;大型离子交换技术&nbsp;&nbsp;■&nbsp;产品喷雾干燥<br />' +
+							'			</p> ' +
+							'          </td> ' +
+							'		</tr>' +
+							'      </table>' +
+							'	</div>' +
+							'  </div>' +
 							' </div>');
-            var $tip4 = $('<div id="tip">'+
-							'  <div class="t_box"> '+
-							'    <div><s><i></i></s> '+
-							'      <table width="320" border="0" cellpadding="1" cellspacing="1">'+
-							'	    <tr> '+
-							'          <th rowspan="2" align="center" valign="middle" scope="col"><img src="Images/top/4.jpg" height="92"/></th> '+
-							'          <th scope="col"><strong>“三废”处理技术虚拟仿真技术平台</strong></th>'+
-							'		</tr>'+
-							'		<tr>'+
-							'		  <td> '+
-							'            <p style="padding-left:.5em; line-height:1.5em;">'+
-							'			   &nbsp;■&nbsp;燃煤废气除尘<br /> '+
-							'               &nbsp;■&nbsp;发酵废水污染处理<br /> '+
-							'               &nbsp;■&nbsp;发酵废渣资源化利用<br /> '+
-							'            </p>'+
-							'		  </td>'+
-							'		</tr>'+
-							'	  </table>'+
-							'	</div>'+
-							'  </div>'+
+            var $tip4 = $('<div id="tip">' +
+							'  <div class="t_box"> ' +
+							'    <div><s><i></i></s> ' +
+							'      <table width="320" border="0" cellpadding="1" cellspacing="1">' +
+							'	    <tr> ' +
+							'          <th rowspan="2" align="center" valign="middle" scope="col"><img src="Images/top/4.jpg" height="92"/></th> ' +
+							'          <th scope="col"><strong>“三废”处理技术虚拟仿真技术平台</strong></th>' +
+							'		</tr>' +
+							'		<tr>' +
+							'		  <td> ' +
+							'            <p style="padding-left:.5em; line-height:1.5em;">' +
+							'			   &nbsp;■&nbsp;燃煤废气除尘<br /> ' +
+							'               &nbsp;■&nbsp;发酵废水污染处理<br /> ' +
+							'               &nbsp;■&nbsp;发酵废渣资源化利用<br /> ' +
+							'            </p>' +
+							'		  </td>' +
+							'		</tr>' +
+							'	  </table>' +
+							'	</div>' +
+							'  </div>' +
 							'</div>');
-            var $tip5 = $('<div id="tip">'+
-							'  <div class="t_box">'+
-							'    <div style="width:250;"><s><i></i></s>'+
-							'	  <p style="padding-left:.5em; text-indent:1em; line-height:1.5em;">'+
-							'	    <strong>虚拟仿真实验项目</strong><br />'+
-							'	    &nbsp;&nbsp;1、啤酒虚拟仿真发酵生产工艺<br />'+
-							'	    &nbsp;&nbsp;2、青霉素虚拟仿真发酵生产工艺<br />'+
-							'		&nbsp;&nbsp;3、...'+
-							'	  </p>'+
-							'    </div>'+
-							'  </div>'+
+            var $tip5 = $('<div id="tip">' +
+							'  <div class="t_box">' +
+							'    <div style="width:250;"><s><i></i></s>' +
+							'	  <p style="padding-left:.5em; text-indent:1em; line-height:1.5em;">' +
+							'	    <strong>虚拟仿真实验项目</strong><br />' +
+							'	    &nbsp;&nbsp;1、啤酒虚拟仿真发酵生产工艺<br />' +
+							'	    &nbsp;&nbsp;2、青霉素虚拟仿真发酵生产工艺<br />' +
+							'		&nbsp;&nbsp;3、...' +
+							'	  </p>' +
+							'    </div>' +
+							'  </div>' +
 							'</div>');
 
             $('#area1').mouseover(function () {
@@ -257,128 +256,224 @@
                 href="#5" />
         </map>
     </div>
-    <div  style="width: 1092px;" align="center">
-	<table width="1092" border="0" cellspacing="1" cellpadding="3">
-  <tr>
-    <td align="left" width="276" height="36"><img src="Images/top/t2.jpg" height="35" /></td>
-    <td align="left" height="36" colspan="2"><img src="Images/top/t3.jpg" height="35" /></td>
-    <td align="left" height="36" ><img src="Images/top/t4.jpg"  height="35" /></td>
-  </tr>
-  <tr>
-    <td width="276" height="140"><table width="276" border="0" cellpadding=".5" cellspacing=".5">
-      <tr>
-        <td width="90" align="center" valign="bottom" ><a href="ExistResource/xunifangzhen.aspx" target="_blank"><img src="Images/top/top1.jpg" width="90" height="132" /></a></td>
-        <td width="3"  valign="top" ></td>
-        <td width="90" valign="bottom" ><a href="ExistResource/xunifangzhen1.aspx" target="_blank"><img src="Images/top/top2.jpg" width="90" height="132" /></a> </td>
-        <td width="3"  valign="top" ></td>
-        <td width="90"  ><a href="http://life.fjnu.edu.cn/lifelab/index.html"  target="_blank"><img src="Images/top/top3.jpg" width="90" height="132" /></a> </td>
-      </tr>
-    </table></td>
-    <td width="308" align="left" valign="center" >
-	<table width="100%"  border="0" cellspacing="1" cellpadding="1" >
-	  <tr><td  height="132"  bgcolor="#7C0606">
-	  <table width="300" border="0" cellspacing="0" cellpadding="0">
-                        <tbody>
-                            <tr>
-                                <td width="300" height="25">
-                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td align="left">
-                                                    &nbsp;<a href="http://imece.fjnu.edu.cn" target="_blank" title="工业微生物发酵技术国家地方联合工程研究中心"><img src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 工业微生物发酵技术国家地方联合工程研究中心</font></a>                                                </td>
-                                            </tr>
-                                        </tbody>
-                              </table>                                </td>
-                            </tr>
-                            <tr>
-                                <td width="300" height="25">
-                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td align="left">
-                                                    &nbsp;<a href="http://imece.fjnu.edu.cn" target="_blank" title="工业微生物教育部工程研究中心"><img src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 工业微生物教育部工程研究中心</font></a>                                                </td>
-                                            </tr>
-                                        </tbody>
-                              </table>                                </td>
-                            </tr>
-                            <tr>
-                                <td width="300" height="25">
-                                    <table width="" cellpadding="0" cellspacing="0" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td align="left">
-                                                    &nbsp;<a href="http://imece.fjnu.edu.cn" target="_blank" title="国家级生物学实验教学示范中心工程实训中心"><img src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 国家级生物学实验教学示范中心工程实训中心</font></a>                                                </td>
-                                            </tr>
-                                        </tbody>
-                              </table>                                </td>
-                            </tr>
-                        </tbody>
-      </table></td></tr></table>
-	</td>
-    <td width="336" align="left" valign="center" ><table><tr><td height="132"  bgcolor="#7C0606">
-	
-	
-	<table  width="328"  border="0" cellspacing="1" cellpadding="1" ><tbody><tr>
-                                <td height="25">
-                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td width="280" align="left">
-                                                    &nbsp;<a href="http://www.tsingtao.com.cn/" target="_blank" title="青岛啤酒福州有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 青岛啤酒福州有限公司</font></a>                                                </td>
-                                            </tr>
-                                        </tbody>
-                                  </table>                                </td>
-                            </tr>
-                            <tr>
-                                <td height="25">
-                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td align="left">
-                                                    &nbsp;<a href="http://www.wuyiwj.com" target="_blank" title="福建省建阳武夷味精有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 福建省建阳武夷味精有限公司</font></a>                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>                                </td>
-                            </tr>
-                            <tr>
-                                <td height="25">
-                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td align="left">
-                                                    &nbsp;<a href="http://www.fxpharm.com" target="_blank" title="丽珠集团福兴医药有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 丽珠集团福兴医药有限公司</font></a>                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>                                </td>
-                            </tr>
-                            <tr>
-                                <td height="25">
-                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td align="left">
-                                                    &nbsp;<a href="http://www.mscgame.com/" target="_blank" title="万城集团福建天趣网络技术有限公司"><img src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 万城集团福建天趣网络技术有限公司</font></a>                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>                                </td>
-      </tr></tbody></table>
-	  
-	  </td></tr></table></td>
-    <td ><table width="100%" height="132"  border="0"  cellpadding="3"  cellspacing="0">
-      <tr>
-        <td width="50%" height="50%" style="border:thin; border-style:none"  align="right" valign="middle"><a href="ExistResource/jiaoxueziyuan.aspx" target="_blank"> <img src="Images/top/r1.jpg" /></a></td>
-        <td width="50%" height="50%" style="border:thin; border-style:none" align="left" valign="middle" ><a href="http://life.fjnu.edu.cn/rcpy/jpkc/520.html" target="_blank"> <img src="Images/top/r2.jpg" /></a></td>
-      </tr>
-      <tr>
-        <td width="50%" height="50%" style="border:thin; border-style:none"  align="right" valign="middle" ><a href="login.aspx" target="_blank"><img src="Images/top/r3.jpg" /></a></td>
-        <td width="50%" height="50%" style="border:thin; border-style:none" align="left" valign="middle" ><a href="#" target="_blank"><img src="Images/top/r4.jpg" /></a></td>
-      </tr>
-    </table></td>
-  </tr>
-</table>
-
-	
-	</div>
+    <div style="width: 1092px;" align="center">
+        <table width="1092" border="0" cellspacing="1" cellpadding="3">
+            <tr>
+                <td align="left" width="276" height="36">
+                    <img src="Images/top/t2.jpg" height="35" />
+                </td>
+                <td align="left" height="36" colspan="2">
+                    <img src="Images/top/t3.jpg" height="35" />
+                </td>
+                <td align="left" height="36">
+                    <img src="Images/top/t4.jpg" height="35" />
+                </td>
+            </tr>
+            <tr>
+                <td width="276" height="140">
+                    <table width="276" border="0" cellpadding=".5" cellspacing=".5">
+                        <tr>
+                            <td width="90" align="center" valign="bottom">
+                                <a href="ExistResource/xunifangzhen.aspx" target="_blank">
+                                    <img src="Images/top/top1.jpg" width="90" height="132" /></a>
+                            </td>
+                            <td width="3" valign="top">
+                            </td>
+                            <td width="90" valign="bottom">
+                                <a href="ExistResource/xunifangzhen1.aspx" target="_blank">
+                                    <img src="Images/top/top2.jpg" width="90" height="132" /></a>
+                            </td>
+                            <td width="3" valign="top">
+                            </td>
+                            <td width="90">
+                                <a href="http://life.fjnu.edu.cn/lifelab/index.html" target="_blank">
+                                    <img src="Images/top/top3.jpg" width="90" height="132" /></a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="308" align="left" valign="center">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                        <tr>
+                            <td height="132" bgcolor="#7C0606">
+                                <table width="300" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td width="300" height="25">
+                                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left">
+                                                                &nbsp;<a href="http://imece.fjnu.edu.cn" target="_blank" title="工业微生物发酵技术国家地方联合工程研究中心"><img
+                                                                    src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 工业微生物发酵技术国家地方联合工程研究中心</font></a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="300" height="25">
+                                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left">
+                                                                &nbsp;<a href="http://imece.fjnu.edu.cn" target="_blank" title="工业微生物教育部工程研究中心"><img
+                                                                    src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 工业微生物教育部工程研究中心</font></a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="300" height="25">
+                                                <table width="" cellpadding="0" cellspacing="0" border="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left">
+                                                                &nbsp;<a href="ExistResource/shitipingtai2.htm" target="_blank" title="生物学国家级实验教学示范中心"><img
+                                                                    src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 生物学国家级实验教学示范中心</font></a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="300" height="25">
+                                                <table width="" cellpadding="0" cellspacing="0" border="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left">
+                                                                &nbsp;<a href="http://chce.fjnu.edu.cn/s/138/t/591/p/1/c/3722/d/3730/list.htm" target="_blank"
+                                                                    title="化工综合国家级实验教学中心"><img src="Images/top/pc.png" width="11" height="11" /><font
+                                                                        color="#FFFFFF"> 化工综合国家级实验教学中心</font></a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="300" height="25">
+                                                <table width="" cellpadding="0" cellspacing="0" border="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left">
+                                                                &nbsp;<a href="http://cse.fjnu.edu.cn" target="_blank" title="软件工程省级实验教学示范中心"><img
+                                                                    src="Images/top/pc.png" width="11" height="11" /><font color="#FFFFFF"> 软件工程省级实验教学示范中心</font></a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="336" align="left" valign="center">
+                    <table>
+                        <tr>
+                            <td height="132" bgcolor="#7C0606">
+                                <table width="328" border="0" cellspacing="1" cellpadding="1">
+                                    <tbody>
+                                        <tr>
+                                            <td height="25">
+                                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left">
+                                                                &nbsp;<a href="http://www.mscgame.com/" target="_blank" title="万城集团福建天趣网络技术有限公司"><img
+                                                                    src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 万城集团福建天趣网络技术有限公司</font></a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">  
+                                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="280" align="left">
+                                                                &nbsp;<a href="http://www.tsingtao.com.cn/" target="_blank" title="青岛啤酒福州有限公司"><img
+                                                                    src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 青岛啤酒福州有限公司</font></a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">
+                                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left">
+                                                                &nbsp;<a href="http://www.wuyiwj.com" target="_blank" title="福建省建阳武夷味精有限公司"><img
+                                                                    src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 福建省建阳武夷味精有限公司</font></a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">
+                                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left">
+                                                                &nbsp;<a href="http://www.fxpharm.com" target="_blank" title="丽珠集团福兴医药有限公司"><img
+                                                                    src="Images/top/building.png" width="11" height="11" /><font color="#FFFFFF"> 丽珠集团福兴医药有限公司</font></a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table width="100%" height="132" border="0" cellpadding="3" cellspacing="0">
+                        <tr>
+                            <td width="50%" height="50%" style="border: thin; border-style: none" align="right"
+                                valign="middle">
+                                <a href="ExistResource/jiaoxueziyuan.aspx" target="_blank">
+                                    <img src="Images/top/r1.jpg" /></a>
+                            </td>
+                            <td width="50%" height="50%" style="border: thin; border-style: none" align="left"
+                                valign="middle">
+                                <a href="http://life.fjnu.edu.cn/rcpy/jpkc/520.html" target="_blank">
+                                    <img src="Images/top/r2.jpg" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%" height="50%" style="border: thin; border-style: none" align="right"
+                                valign="middle">
+                                <a href="login.aspx" target="_blank">
+                                    <img src="Images/top/r3.jpg" /></a>
+                            </td>
+                            <td width="50%" height="50%" style="border: thin; border-style: none" align="left"
+                                valign="middle">
+                                <a href="#" target="_blank">
+                                    <img src="Images/top/r4.jpg" /></a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div id="divBottom" style="width: 1092px;" align="center">
         <table width="1092" height="130" border="0" cellspacing="1" cellpadding="1">
             <tbody>
